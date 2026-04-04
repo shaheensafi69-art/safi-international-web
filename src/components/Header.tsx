@@ -15,10 +15,12 @@ export default function Header({ lang }: HeaderProps) {
   const pathname = usePathname();
   const isRtl = lang === 'fa';
 
+  // لیست منوی به‌روزرسانی شده با بخش About
   const menuItems = [
-    { name: isRtl ? 'هوم' : 'Home', path: '/' },
-    { name: isRtl ? 'بلوگ' : 'Blog', path: '/blog' },
-    { name: isRtl ? 'ویکتوریس' : 'Victories', path: '/victories' },
+    { name: isRtl ? 'خانه' : 'Home', path: '' },
+    { name: isRtl ? 'درباره من' : 'About', path: '/about' },
+    { name: isRtl ? 'پروژه‌ها' : 'Ventures', path: '/ventures' },
+    { name: isRtl ? 'بلاگ' : 'Blog', path: '/blog' },
   ];
 
   const languages = [
@@ -39,7 +41,7 @@ export default function Header({ lang }: HeaderProps) {
     <header className="fixed top-8 left-0 w-full z-50 bg-transparent px-6 md:px-12" dir={isRtl ? 'rtl' : 'ltr'}>
       <div className="max-w-[1600px] mx-auto grid grid-cols-3 items-center">
         
-        {/* ۱. بخش لوگو و نام (سمت چپ در انگلیسی / سمت راست در فارسی) */}
+        {/* ۱. بخش لوگو و نام */}
         <div className={`flex ${isRtl ? 'justify-start' : 'justify-start'}`}>
           <Link href={`/${lang}`} className="group flex items-center gap-3 bg-black/40 backdrop-blur-xl border border-safi-gold/20 p-2 pe-6 rounded-2xl hover:border-safi-gold/50 transition-all shadow-[0_0_20px_rgba(212,175,55,0.1)]">
             <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-safi-gold/30">
@@ -51,14 +53,14 @@ export default function Header({ lang }: HeaderProps) {
           </Link>
         </div>
 
-        {/* ۲. بخش منو (دقیقاً در وسط صفحه) */}
+        {/* ۲. بخش منو (مرکز) */}
         <div className="flex justify-center">
           <nav className="flex items-center gap-1 bg-safi-gold/10 backdrop-blur-2xl border border-safi-gold/20 p-1.5 rounded-2xl shadow-[0_0_30px_rgba(212,175,55,0.15)]">
             {menuItems.map((item, index) => (
               <Link 
                 key={index} 
                 href={`/${lang}${item.path}`} 
-                className="px-6 py-2 text-gray-300 hover:text-black hover:bg-safi-gold rounded-xl text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500"
+                className="px-5 py-2 text-gray-300 hover:text-black hover:bg-safi-gold rounded-xl text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] transition-all duration-500 whitespace-nowrap"
               >
                 {item.name}
               </Link>
@@ -66,7 +68,7 @@ export default function Header({ lang }: HeaderProps) {
           </nav>
         </div>
 
-        {/* ۳. بخش زبان (سمت راست در انگلیسی / سمت چپ در فارسی) */}
+        {/* ۳. بخش زبان */}
         <div className={`flex ${isRtl ? 'justify-end' : 'justify-end'}`}>
           <div className="relative">
             <button 
@@ -82,7 +84,6 @@ export default function Header({ lang }: HeaderProps) {
               </svg>
             </button>
 
-            {/* لیست کشویی لوکس */}
             {isOpen && (
               <div className={`absolute top-full mt-4 w-44 bg-black/90 backdrop-blur-3xl border border-safi-gold/30 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)] animate-in fade-in zoom-in duration-200 ${isRtl ? 'left-0' : 'right-0'}`}>
                 {languages.map((l) => (
