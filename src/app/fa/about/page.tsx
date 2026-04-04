@@ -8,7 +8,7 @@ export default function AboutPage() {
       university: 'Istanbul Technical University (ITU)',
       degree: 'Bachelor of Computer Science',
       duration: '2018 - 2022',
-      details: 'تمرکز بر مهندسی نرم‌افزار و سیستم‌های هوشمند در یکی از برترین دانشگاه‌های افغانستان.'
+      details: 'تمرکز بر مهندسی نرم‌افزار و سیستم‌های هوشمند در یکی از برترین دانشگاه‌های استانبول.'
     },
     {
       university: 'Business Management Courses',
