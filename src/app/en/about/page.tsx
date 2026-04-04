@@ -92,7 +92,7 @@ export default function AboutPage() {
             <h1 className="text-5xl md:text-7xl font-black text-luxury">Shaheen Safi</h1>
             <p className="text-safi-gold text-2xl font-light tracking-wide font-mono uppercase">Computer Specialist</p>
             <p className="text-gray-400 text-lg leading-relaxed text-justify max-w-2xl">
-              Creative, energetic, and passionate about technology and online business. Experienced in computer science teaching, IT system management, and founder of SafiPro.
+              Creative, energetic, and passionate about technology and online business. Experienced in computer science teaching, IT system management, and founder of Safi Group.
             </p>
           </div>
         </div>

@@ -92,7 +92,7 @@ export default function AboutPage() {
             <h1 className="text-5xl md:text-7xl font-black text-luxury">شاهین صافی</h1>
             <p className="text-safi-gold text-2xl font-light tracking-wide font-mono uppercase">Computer Specialist</p>
             <p className="text-gray-400 text-lg leading-relaxed text-justify max-w-2xl">
-              خلاق، پرانرژی و مشتاق تکنولوژی و تجارت آنلاین. دارای تجربه در تدریس علوم کامپیوتر، مدیریت سیستم‌های IT و بنیان‌گذار مجموعه SafiPro.
+              خلاق، پرانرژی و مشتاق تکنولوژی و تجارت آنلاین. دارای تجربه در تدریس علوم کامپیوتر، مدیریت سیستم‌های IT و بنیان‌گذار مجموعه Safi Group.
             </p>
           </div>
         </div>
