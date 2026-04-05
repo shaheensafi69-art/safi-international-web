@@ -3,16 +3,19 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
+
   return (
-    <html lang={params.lang || "en"}>
+    <html lang={lang || "en"}>
       <body className={`${inter.className} bg-black text-white antialiased`}>
+        <div className="galaxy-bg" />
         {children}
       </body>
     </html>
