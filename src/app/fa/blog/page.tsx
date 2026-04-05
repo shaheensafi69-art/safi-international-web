@@ -1,54 +1,84 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function BlogPage() {
+export default function BlogPageFa() {
+  const mainBlog = {
+    title: "سفر سفی: ساختن یک امپراتوری از دل چالش‌ها",
+    description: "داستان شکل‌گیری SafiPay و چالش‌های مسیر کارآفرینی در دنیای فین‌تک.",
+    image: "/blog/the-journey-of-safi/blog.jpeg",
+    date: "2026.04.05"
+  };
+
+  const upcomingBlogs = Array.from({ length: 29 }, (_, i) => ({
+    id: i + 2,
+    title: `استراتژی دیجیتال • قسمت ${i + 2}`,
+    category: "فین‌تک و آینده"
+  }));
+
   return (
-    <div className="min-h-screen bg-black text-white rtl pt-32 pb-24 px-6 flex flex-col items-center justify-center" dir="rtl">
-      
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-safi-gold/5 blur-[120px] rounded-full pointer-events-none" />
+    <div className="min-h-screen bg-black text-white pt-32 pb-24 px-6 relative overflow-hidden" dir="rtl">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        {/* Animated Icon/Badge */}
-        <div className="inline-block mb-8 px-6 py-2 rounded-full border border-safi-gold/20 bg-safi-gold/5 text-safi-gold font-mono text-sm tracking-widest uppercase animate-pulse">
-          تحلیل و اخبار • به‌زودی
-        </div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <header className="text-center mb-16">
+          <h1 className="text-5xl md:text-8xl font-black text-luxury mb-6 tracking-tighter italic uppercase">
+            مرکز هوش سفی
+          </h1>
+          <p className="text-gray-500 max-w-xl mx-auto text-sm md:text-base font-mono tracking-widest uppercase">
+            تحلیل‌های استراتژیک و نوآوری‌های فین‌تک
+          </p>
+        </header>
 
-        {/* Main Heading */}
-        <h1 className="text-6xl md:text-8xl font-black text-luxury mb-12 leading-tight">
-          بلاگ <br /> 
-          <span className="text-zinc-800">COMING SOON</span>
-        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          
+          {/* لینک مستقیم به پوشه فارسی */}
+          <Link href="/fa/blog/the-journey-of-safi" className="group lg:col-span-2 flex flex-col">
+            <div className="relative h-80 md:h-[500px] w-full overflow-hidden rounded-3xl border border-white/5 bg-zinc-900 transition-all duration-500 group-hover:border-amber-500/30 shadow-2xl">
+              <Image 
+                src={mainBlog.image} 
+                alt={mainBlog.title} 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.4)]" />
+            </div>
 
-        {/* Description */}
-        <p className="text-gray-400 text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-16">
-          ما در حال آماده‌سازی مجموعه‌ای از مقالات تخصصی در حوزه‌های فین‌تک، امنیت دیجیتال و استراتژی‌های سرمایه‌گذاری هستیم. 
-          به‌زودی اولین بلاگ‌های آموزشی و تحلیلی در این صفحه منتشر خواهند شد.
-        </p>
+            <div className="pt-8 px-2 text-right">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-amber-500 font-mono text-xs tracking-widest uppercase">آخرین مطلب</span>
+                <div className="h-px w-12 bg-amber-500/20" />
+                <span className="text-zinc-500 font-mono text-xs">{mainBlog.date}</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black mb-4 leading-tight group-hover:text-amber-500 transition-colors">
+                {mainBlog.title}
+              </h2>
+              <p className="text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+                {mainBlog.description}
+              </p>
+            </div>
+          </Link>
 
-        {/* Placeholder Cards - Looking Professional while empty */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 opacity-20 grayscale">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="h-64 rounded-3xl border border-zinc-800 bg-zinc-900/50 p-6 flex flex-col justify-end text-right">
-              <div className="w-20 h-2 bg-zinc-800 rounded-full mb-4"></div>
-              <div className="w-full h-4 bg-zinc-800 rounded-full mb-2"></div>
-              <div className="w-2/3 h-4 bg-zinc-800 rounded-full"></div>
+          {/* سایر بلاگ‌ها */}
+          {upcomingBlogs.map((blog) => (
+            <div key={blog.id} className="group flex flex-col grayscale opacity-40 hover:opacity-100 transition-all duration-500">
+              <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-6 border border-zinc-800 bg-zinc-900/50 flex items-center justify-center">
+                <Image src="/logo.jpeg" alt="Logo" width={100} height={100} className="opacity-10 scale-125" />
+                <div className="absolute bottom-4 right-4">
+                  <span className="text-[9px] font-mono tracking-widest uppercase text-zinc-600 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-zinc-800">
+                    به زودی
+                  </span>
+                </div>
+              </div>
+              <div className="px-1 text-right">
+                <span className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.2em] mb-2 block">{blog.category}</span>
+                <h3 className="text-xl font-bold text-zinc-400 group-hover:text-zinc-200 transition-colors leading-snug">
+                  {blog.title}
+                </h3>
+              </div>
             </div>
           ))}
         </div>
-
-        {/* Footer Note */}
-        <div className="mt-24">
-          <p className="text-zinc-600 font-mono text-sm tracking-[0.4em] uppercase">
-            Stay Tuned for Safi Intelligence Hub
-          </p>
-        </div>
-      </div>
-
-      {/* Footer Branding */}
-      <div className="absolute bottom-12 left-0 right-0 text-center">
-        <p className="text-zinc-800 text-xs font-mono uppercase tracking-widest">
-          Safi International Capital LTD • London
-        </p>
       </div>
     </div>
   );
