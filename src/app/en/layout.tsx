@@ -1,22 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function EnglishLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function EnglishLayout({ children }: { children: React.ReactNode }) {
   return (
-    <section dir="ltr" className="min-h-screen flex flex-col">
-      {/* پاس دادن زبان en به هیدر */}
+    <div dir="ltr" className="relative min-h-screen flex flex-col">
       <Header lang="en" />
-      
-      <main className="flex-grow">
+      <main className="flex-grow relative z-0">
         {children}
       </main>
-
-      {/* پاس دادن زبان en به فوتر */}
       <Footer lang="en" />
-    </section>
+    </div>
   );
 }

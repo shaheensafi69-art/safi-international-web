@@ -52,19 +52,47 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
   ];
 
   return (
-    <div className="relative min-h-screen bg-black rtl" dir="rtl">
-      <div className="galaxy-overlay" />
+    <div className="relative min-h-screen bg-black rtl text-white" dir="rtl">
+      <div className="galaxy-overlay fixed inset-0 pointer-events-none" />
       
-      {/* ۱. بخش هیرو */}
-      <section className="relative w-full h-[70vh] md:h-screen flex items-center justify-center">
-        <Image 
-          src="/hero.jpg" 
-          alt="چشم‌انداز شاهین صافی" 
-          fill 
-          className="object-cover opacity-80" 
-          priority 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black" />
+      {/* ۱. بخش هیرو - باکس لنداسکیپ و متن کنار آن */}
+      <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          
+          {/* باکس لنداسکیپ تصویر */}
+          <div className="flex-1 w-full order-2 lg:order-1">
+            <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-safi-gold/20 shadow-[0_0_80px_rgba(212,175,55,0.1)] group">
+              <Image 
+                src="/hero.jpg" 
+                alt="چشم‌انداز شاهین صافی" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                priority 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+          </div>
+
+          {/* متن کنار تصویر هیرو */}
+          <div className="flex-1 space-y-8 order-1 lg:order-2 text-right">
+            <div className="space-y-4">
+              <span className="text-safi-gold font-mono tracking-widest text-sm uppercase">بنیان‌گذار و مدیرعامل</span>
+              <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase italic text-luxury leading-none">
+                شاهین <br />
+                <span className="text-safi-gold">صافی</span>
+              </h1>
+            </div>
+            <p className="text-gray-400 text-xl md:text-2xl font-light leading-relaxed">
+              پیشگام در نسل بعدی آزادی مالی. 
+              از تسلط بر لینوکس در ۴ سالگی تا ساخت یک امپراتوری جهانی فین‌تک.
+            </p>
+            <div className="flex gap-4 justify-start items-center">
+              <div className="h-px w-12 bg-safi-gold"></div>
+              <span className="text-xs uppercase tracking-[0.4em] text-safi-gold/60 font-bold">مستقر در لندن</span>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       {/* ۲. بخش داستان */}
@@ -83,7 +111,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
                 : 'md:flex-row-reverse'
             }`}
           >
-            {/* تصویر عمودی */}
             <div className="flex-1 w-full max-w-[420px]">
               <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-[0_0_60px_rgba(212,175,55,0.15)] group">
                 <Image 
@@ -98,11 +125,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
               </div>
             </div>
 
-            {/* بخش متن */}
             <div className="flex-1 space-y-8 text-right">
-              <div className="flex items-center gap-6 flex-row-reverse">
+              <div className="flex items-center gap-6 justify-end">
+                <div className="h-[1px] flex-grow bg-gradient-to-l from-amber-500/50 to-transparent"></div>
                 <span className="text-safi-gold/50 font-mono text-xl tracking-tighter">مرحله_۰{item.id}</span>
-                <div className="h-[1px] flex-grow bg-gradient-to-r from-transparent to-safi-gold/50"></div>
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-luxury leading-tight">
                 {item.title}
@@ -117,7 +143,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
 
       {/* ۳. بخش دعوت به اقدام */}
       <section className="py-40 text-center px-6">
-        <div className="glass-card max-w-5xl mx-auto p-20 rounded-[3rem] border-safi-gold/10 relative overflow-hidden">
+        <div className="glass-card max-w-5xl mx-auto p-20 rounded-[3rem] border border-safi-gold/10 bg-zinc-900/20 backdrop-blur-sm relative overflow-hidden">
           <h2 className="text-5xl md:text-7xl font-black mb-10 text-luxury leading-tight">
               اصلاح آینده <br /> فین‌تک جهان
           </h2>

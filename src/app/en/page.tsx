@@ -5,86 +5,101 @@ import { Locale } from '@/lib/i18n-config';
 export default async function HomePage({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  const isRtl = lang === 'fa';
 
   const storyParagraphs = [
     {
       id: 1,
       img: '/shaheen1.jpeg',
       year: '2003 - 2007',
-      title: isRtl ? 'آغاز از تگاب تا کابل' : 'Roots: From Tagab to Kabul',
-      text: isRtl 
-        ? 'من در ولایت سرسبز کاپیسا، ولسوالی تگاب به دنیا آمدم. تنها ۳ ساله بودم (سال ۲۰۰۶) که خانواده‌ام تصمیم به هجرت به کابل گرفتند. سال ۲۰۰۷، زمانی که من فقط ۴ سال داشتم، پدرم برای برادران بزرگترم یک کامپیوتر خرید. در آن روزها که همه کودکان هم‌سن من به فکر بازی‌های کودکانه بودند، من مجذوب دنیای سیاه و خطوط فرمان لینوکس شدم. در حالی که برادرانم گیم می‌زدند، من کار با لینوکس را شروع کردم و این آغاز پیوند ناگسستنی من با تکنولوژی بود.'
-        : 'I was born in Tagab, Kapisa. At just 3 years old in 2006, my family moved to Kabul. In 2007, when I was only four, my father bought a computer for my brothers. While other kids played games, I was fascinated by the black screens and command lines of Linux. This was the moment my unbreakable bond with technology began.'
+      title: 'Roots: From Tagab to Kabul',
+      text: 'I was born in Tagab, Kapisa. At just 3 years old in 2006, my family moved to Kabul. In 2007, when I was only four, my father bought a computer for my brothers. While other kids played games, I was fascinated by the black screens and command lines of Linux. This was the moment my unbreakable bond with technology began.'
     },
     {
       id: 2,
       img: '/shaheen2.jpeg',
       year: '2008 - 2014',
-      title: isRtl ? 'نبوغ دیجیتال و دنیای تاریک' : 'Digital Prodigy & The Dark Web',
-      text: isRtl
-        ? 'در ظرف یک سال، در سن ۵ سالگی (۲۰۰۸)، من به تنهایی و از طریق خودآموزی به زبان پایتون مسلط شدم. این نبوغ زودهنگام مرا به سمت دنیای امنیت و هکینگ سوق داد. در سال ۲۰۰۹، زمانی که بیت‌کوین تازه متولد شده بود، کنجکاوی‌ام مرا به اعماق دارک‌وب کشاند. چندین سال را در این فضای پیچیده سپری کردم و با مفاهیم رمزنگاری و بلاک‌چین در لایه‌های پنهان اینترنت آشنا شدم. این تجربه تا سن ۱۲ سالگی ادامه داشت و دید مرا نسبت به قدرت بی‌پایان کدها تغییر داد.'
-        : 'Within a year, at age 5 (2008), I mastered Python through self-study. This early brilliance led me into the world of security and hacking. In 2009, as Bitcoin was born, my curiosity took me into the depths of the Dark Web. I spent years in this complex space, learning about cryptography and blockchain in the hidden layers of the internet until I was 12.'
+      title: 'Digital Prodigy & The Dark Web',
+      text: 'Within a year, at age 5 (2008), I mastered Python through self-study. This early brilliance led me into the world of security and hacking. In 2009, as Bitcoin was born, my curiosity took me into the depths of the Dark Web. I spent years in this complex space, learning about cryptography and blockchain in the hidden layers of the internet until I was 12.'
     },
     {
       id: 3,
       img: '/shaheen3.jpeg',
       year: '2015 - 2017',
-      title: isRtl ? 'تجارت آنلاین و سد بانکی' : 'E-Commerce & The Banking Wall',
-      text: isRtl
-        ? 'در اواخر سال ۲۰۱۵، با کوله‌باری از دانش فنی، تصمیم گرفتم وارد دنیای بیزنس شوم. کارم را با فروش در آمازون شروع کردم. اما خیلی زود با بزرگترین چالش زندگی‌ام روبرو شدم: تبعیض مالی. به دلیل مشکلات اکانت‌های بانکی و محدودیت‌های بین‌المللی، اکانت‌های آمازون من بارها و بارها بلاک شدند. این سد بزرگ بانکی نه تنها مرا متوقف نکرد، بلکه انگیزه‌ای شد تا در سال ۲۰۱۷ وارد دنیای فارکس شوم و راه‌های جدیدی برای خلق ثروت در بازارهای جهانی پیدا کنم.'
-        : 'In late 2015, I decided to enter the business world, starting with Amazon. However, I soon faced my biggest challenge: financial discrimination. Due to banking issues, my accounts were blocked repeatedly. This obstacle didn’t stop me; it inspired me to enter the world of Forex in 2017, seeking new ways to create wealth in global markets.'
+      title: 'E-Commerce & The Banking Wall',
+      text: 'In late 2015, I decided to enter the business world, starting with Amazon. However, I soon faced my biggest challenge: financial discrimination. Due to banking issues, my accounts were blocked repeatedly. This obstacle didn’t stop me; it inspired me to enter the world of Forex in 2017, seeking new ways to create wealth in global markets.'
     },
     {
       id: 4,
       img: '/shaheen4.jpeg',
       year: '2020 - 2022',
-      title: isRtl ? 'ظهور و سقوط صافی‌پرو' : 'The Rise & Fall of SafiPro',
-      text: isRtl
-        ? 'در سال ۲۰۲۰، برند لباس شخصی خودم، "صافی‌پرو" را با طراحی‌های مدرن و متفاوت راه‌اندازی کردم. بیزنس عالی پیش می‌رفت، اما دوباره با همان دشمن قدیمی روبرو شدم: سیستم‌های بانکی که اجازه گسترش بیزنس را نمی‌دادند. در آن لحظه تصمیم سختی گرفتم؛ برند صافی‌پرو را فروختم تا سرمایه کافی برای حل ریشه‌ای این مشکل داشته باشم. من به این نتیجه رسیدم که تا وقتی مشکل پرداخت را حل نکنم، هیچ بیزنسی برای من و هم‌وطنانم پایدار نخواهد بود.'
-        : 'In 2020, I launched my clothing brand, "SafiPro". The business was thriving, but I faced the same old enemy: banking systems that stifled growth. I made a tough decision; I sold SafiPro to gain the capital needed to solve this problem at its root. I realized that until I fixed the payment issue, no business would be sustainable for me or my people.'
+      title: 'The Rise & Fall of SafiPro',
+      text: 'In 2020, I launched my clothing brand, "SafiPro". The business was thriving, but I faced the same old enemy: banking systems that stifled growth. I made a tough decision; I sold SafiPro to gain the capital needed to solve this problem at its root. I realized that until I fixed the payment issue, no business would be sustainable for me or my people.'
     },
     {
       id: 5,
       img: '/shaheen5.jpeg',
       year: '2023 - 2024',
-      title: isRtl ? 'تخصص فارکس و ایده صافی‌پی' : 'Forex Mastery & SafiPay Idea',
-      text: isRtl
-        ? 'سال ۲۰۲۳ را صرف تحقیق و توسعه برای یک سیستم مالی مدرن کردم. در سال ۲۰۲۴، ایده "صافی‌پی" (SafiPay) رسماً متولد شد. همزمان در دنیای مالی، پس از سال‌ها معامله‌گری، در دسامبر ۲۰۲۴ موفق شدم مدرک بین‌المللی و معتبر از سازمان IFTA در فارکس را دریافت کنم. این یک دستاورد بزرگ بود، اما من می‌دانستم که رسالت واقعی من چیز دیگری است. پس از دریافت سرتیفیکت، فارکس را کنار گذاشتم تا تمام ثانیه‌های زندگی‌ام را وقف ساختن زیرساخت‌های صافی‌پی کنم.'
-        : 'I spent 2023 researching a modern financial system. In 2024, the idea of "SafiPay" was born. Simultaneously, after years of trading, I earned a prestigious IFTA certificate in Forex in December 2024. Despite this achievement, I knew my true calling was elsewhere. I left Forex behind to dedicate every second of my life to building SafiPay.'
+      title: 'Forex Mastery & SafiPay Idea',
+      text: 'I spent 2023 researching a modern financial system. In 2024, the idea of "SafiPay" was born. Simultaneously, after years of trading, I earned a prestigious IFTA certificate in Forex in December 2024. Despite this achievement, I knew my true calling was elsewhere. I left Forex behind to dedicate every second of my life to building SafiPay.'
     },
     {
       id: 6,
       img: '/shaheen6.jpeg',
       year: 'NOW',
-      title: isRtl ? 'امروز: مأموریت جهانی صافی‌پی' : 'Today: The Global Mission',
-      text: isRtl
-        ? 'امروز تمام وقت، انرژی و تمرکز من صرف توسعه صافی‌پی می‌شود. من از لینوکس در ۴ سالگی و دارک‌وب در ۹ سالگی گذشتم تا امروز بتوانم پلی بسازم که هیچ بیزنس‌منی به دلیل محدودیت‌های مالی متوقف نشود. صافی‌پی نه فقط یک اپلیکیشن، بلکه حاصل تمام چالش‌هایی است که از تگاب تا لندن پشت سر گذاشته‌ام. ما در حال ساختن آینده‌ای هستیم که در آن جابجایی پول به سادگی ارسال یک پیام باشد.'
-        : 'Today, all my energy is focused on SafiPay. I went from Linux at 4 and the Dark Web at 9 to building a bridge where no entrepreneur is ever stopped by financial limits. SafiPay is more than an app; it’s the result of every challenge I’ve faced from Tagab to London. We are building a future where moving money is as simple as sending a message.'
+      title: 'Today: The Global Mission',
+      text: 'Today, all my energy is focused on SafiPay. I went from Linux at 4 and the Dark Web at 9 to building a bridge where no entrepreneur is ever stopped by financial limits. SafiPay is more than an app; it’s the result of every challenge I’ve faced from Tagab to London. We are building a future where moving money is as simple as sending a message.'
     }
   ];
 
   return (
-    <div className={`relative min-h-screen bg-black ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
-      <div className="galaxy-overlay" />
+    <div className="relative min-h-screen bg-black text-white" dir="ltr">
+      <div className="galaxy-overlay fixed inset-0 pointer-events-none" />
       
-      {/* 1. Hero Section */}
-      <section className="relative w-full h-[70vh] md:h-screen flex items-center justify-center">
-        <Image 
-          src="/hero.jpg" 
-          alt="Shaheen Safi Vision" 
-          fill 
-          className="object-cover opacity-80" 
-          priority 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black" />
+      {/* 1. Hero Section - Landscape box and side text */}
+      <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          
+          {/* Landscape Image Box */}
+          <div className="flex-1 w-full order-2 lg:order-1">
+            <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-safi-gold/20 shadow-[0_0_80px_rgba(212,175,55,0.1)] group">
+              <Image 
+                src="/hero.jpg" 
+                alt="Shaheen Safi Vision" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                priority 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+          </div>
+
+          {/* Hero Side Text */}
+          <div className="flex-1 space-y-8 order-1 lg:order-2 text-left">
+            <div className="space-y-4">
+              <span className="text-safi-gold font-mono tracking-widest text-sm uppercase">Founder & CEO</span>
+              <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase italic text-luxury leading-none">
+                Shaheen <br />
+                <span className="text-safi-gold">Safi</span>
+              </h1>
+            </div>
+            <p className="text-gray-400 text-xl md:text-2xl font-light leading-relaxed">
+              Pioneering the next generation of financial freedom. 
+              From mastering Linux at age 4 to building a global Fintech empire.
+            </p>
+            <div className="flex gap-4 justify-start items-center">
+              <div className="h-px w-12 bg-safi-gold"></div>
+              <span className="text-xs uppercase tracking-[0.4em] text-safi-gold/60 font-bold">Based in London</span>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       {/* 2. Story Section */}
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto space-y-56">
         
         <h2 className="text-center text-luxury text-4xl md:text-6xl font-black mb-32 tracking-[0.2em] uppercase">
-          {isRtl ? 'مسیر یک نابغه' : 'The Path of a Visionary'}
+          The Path of a Visionary
         </h2>
 
         {storyParagraphs.map((item, index) => (
@@ -96,7 +111,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
                 : 'md:flex-row-reverse'
             }`}
           >
-            {/* تصویر عمودی */}
             <div className="flex-1 w-full max-w-[420px]">
               <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-[0_0_60px_rgba(212,175,55,0.15)] group">
                 <Image 
@@ -105,22 +119,21 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
                   fill 
                   className="object-cover transition-transform duration-1000 group-hover:scale-110" 
                 />
-                <div className={`absolute top-6 ${isRtl ? 'right-6' : 'left-6'} bg-black/70 backdrop-blur-xl px-5 py-2 rounded-2xl border border-safi-gold/40 text-safi-gold font-mono font-bold`}>
+                <div className="absolute top-6 left-6 bg-black/70 backdrop-blur-xl px-5 py-2 rounded-2xl border border-safi-gold/40 text-safi-gold font-mono font-bold">
                   {item.year}
                 </div>
               </div>
             </div>
 
-            {/* بخش متن با تراز هوشمند */}
-            <div className={`flex-1 space-y-8 ${isRtl ? 'text-right' : 'text-left'}`}>
-              <div className={`flex items-center gap-6 ${isRtl ? 'flex-row-reverse' : 'flex-row'}`}>
+            <div className="flex-1 space-y-8 text-left">
+              <div className="flex items-center gap-6 justify-start">
                 <span className="text-safi-gold/50 font-mono text-xl tracking-tighter">PHASE_0{item.id}</span>
-                <div className="h-[1px] flex-grow bg-gradient-to-r from-safi-gold/50 to-transparent"></div>
+                <div className="h-[1px] flex-grow bg-gradient-to-r from-amber-500/50 to-transparent"></div>
               </div>
               <h3 className="text-4xl md:text-5xl font-black text-luxury leading-tight">
                 {item.title}
               </h3>
-              <p className={`text-gray-400 text-xl md:text-2xl leading-relaxed font-light text-justify ${isRtl ? 'border-r-2 pr-6' : 'border-l-2 pl-6'} border-zinc-900 hover:border-safi-gold transition-colors duration-500`}>
+              <p className="text-gray-400 text-xl md:text-2xl leading-relaxed font-light text-justify border-l-2 pl-6 border-zinc-900 hover:border-safi-gold transition-colors duration-500">
                 {item.text}
               </p>
             </div>
@@ -130,9 +143,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: Loc
 
       {/* 3. CTA Section */}
       <section className="py-40 text-center px-6">
-        <div className="glass-card max-w-5xl mx-auto p-20 rounded-[3rem] border-safi-gold/10 relative overflow-hidden">
+        <div className="glass-card max-w-5xl mx-auto p-20 rounded-[3rem] border border-safi-gold/10 bg-zinc-900/20 backdrop-blur-sm relative overflow-hidden">
           <h2 className="text-5xl md:text-7xl font-black mb-10 text-luxury leading-tight">
-             FIXING THE FUTURE <br /> OF FINTECH
+              FIXING THE FUTURE <br /> OF FINTECH
           </h2>
           <p className="text-gray-500 tracking-[0.8em] uppercase text-sm font-medium">
             Safi International Capital LTD • London
