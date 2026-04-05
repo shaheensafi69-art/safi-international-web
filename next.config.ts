@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // این بخش معجزه می‌کند و تمام ارورهای بیلد را نادیده می‌گیرد
   typescript: {
-    // این خط باعث می‌شود ورسل ارورهای تایپ‌اسکریپت را نادیده بگیرد و سایت را بالا بیاورد
     ignoreBuildErrors: true,
   },
   eslint: {
-    // نادیده گرفتن ارورهای قوانین کدنویسی
     ignoreDuringBuilds: true,
   },
+  // اگر از تصاویر لوگو استفاده می‌کنی این هم لازم است
+  images: {
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;
