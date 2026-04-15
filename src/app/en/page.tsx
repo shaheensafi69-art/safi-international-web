@@ -1,157 +1,154 @@
+"use client";
+
 import Image from 'next/image';
-import { getDictionary } from '@/lib/get-dictionary';
-import { Locale } from '@/lib/i18n-config';
+import Link from 'next/link';
+import { FaLinkedin, FaInstagram, FaTiktok, FaWhatsapp, FaFacebook, FaMedium } from 'react-icons/fa6';
 
-export default async function HomePage({ params }: { params: Promise<{ lang: Locale }> }) {
-  const { lang } = await params;
-  const dict = await getDictionary(lang);
-
-  const storyParagraphs = [
+export default function HomePageEn() {
+  const mediumArticles = [
     {
-      id: 1,
-      img: '/shaheen1.jpeg',
-      year: '2003 - 2007',
-      title: 'Roots: From Tagab to Kabul',
-      text: 'I was born in Tagab, Kapisa. At just 3 years old in 2006, my family moved to Kabul. In 2007, when I was only four, my father bought a computer for my brothers. While other kids played games, I was fascinated by the black screens and command lines of Linux. This was the moment my unbreakable bond with technology began.'
+      title: "The Infrastructure of Trust: How SafiPay is Redefining Banking",
+      link: "https://medium.com/@omulbaninmoradi188/the-infrastructure-of-trust-how-safipay-is-redefining-digital-banking-security-in-emerging-markets-439b14641ad5",
+      size: "md:col-span-2 md:row-span-2",
+      bg: "bg-zinc-900",
+      thumb: "/hero.jpg" // می‌توانید اسکرین‌شات مقاله را بگذارید
     },
     {
-      id: 2,
-      img: '/shaheen2.jpeg',
-      year: '2008 - 2014',
-      title: 'Digital Prodigy & The Dark Web',
-      text: 'Within a year, at age 5 (2008), I mastered Python through self-study. This early brilliance led me into the world of security and hacking. In 2009, as Bitcoin was born, my curiosity took me into the depths of the Dark Web. I spent years in this complex space, learning about cryptography and blockchain in the hidden layers of the internet until I was 12.'
+      title: "Introduction to Shaheen Safi",
+      link: "https://medium.com/@omulbaninmoradi188/introduction-10633ed36932",
+      size: "md:col-span-1 md:row-span-1",
+      bg: "bg-amber-600/10",
+      thumb: null
     },
     {
-      id: 3,
-      img: '/shaheen3.jpeg',
-      year: '2015 - 2017',
-      title: 'E-Commerce & The Banking Wall',
-      text: 'In late 2015, I decided to enter the business world, starting with Amazon. However, I soon faced my biggest challenge: financial discrimination. Due to banking issues, my accounts were blocked repeatedly. This obstacle didn’t stop me; it inspired me to enter the world of Forex in 2017, seeking new ways to create wealth in global markets.'
-    },
-    {
-      id: 4,
-      img: '/shaheen4.jpeg',
-      year: '2020 - 2022',
-      title: 'The Rise & Fall of SafiPro',
-      text: 'In 2020, I launched my clothing brand, "SafiPro". The business was thriving, but I faced the same old enemy: banking systems that stifled growth. I made a tough decision; I sold SafiPro to gain the capital needed to solve this problem at its root. I realized that until I fixed the payment issue, no business would be sustainable for me or my people.'
-    },
-    {
-      id: 5,
-      img: '/shaheen5.jpeg',
-      year: '2023 - 2024',
-      title: 'Forex Mastery & SafiPay Idea',
-      text: 'I spent 2023 researching a modern financial system. In 2024, the idea of "SafiPay" was born. Simultaneously, after years of trading, I earned a prestigious IFTA certificate in Forex in December 2024. Despite this achievement, I knew my true calling was elsewhere. I left Forex behind to dedicate every second of my life to building SafiPay.'
-    },
-    {
-      id: 6,
-      img: '/shaheen6.jpeg',
-      year: 'NOW',
-      title: 'Today: The Global Mission',
-      text: 'Today, all my energy is focused on SafiPay. I went from Linux at 4 and the Dark Web at 9 to building a bridge where no entrepreneur is ever stopped by financial limits. SafiPay is more than an app; it’s the result of every challenge I’ve faced from Tagab to London. We are building a future where moving money is as simple as sending a message.'
+      title: "Regulatory Excellence in Digital Finance",
+      link: "https://medium.com/@jsana9033/regulatory-excellence-in-digital-finance-a-case-study-of-safipays-european-operations-5f9a6a1845ad",
+      size: "md:col-span-1 md:row-span-2",
+      bg: "bg-zinc-800",
+      thumb: null
     }
   ];
 
+  const socialLinks = [
+    { icon: <FaLinkedin size={32} />, link: "https://www.linkedin.com/in/shaheen-safi-b73a30299", color: "text-blue-500", label: "Professional" },
+    { icon: <FaInstagram size={32} />, link: "https://www.instagram.com/top_g_official1", color: "text-pink-500", label: "Lifestyle" },
+    { icon: <FaTiktok size={32} />, link: "https://www.tiktok.com/@safi_sahib6", color: "text-white", label: "Inside" },
+    { icon: <FaWhatsapp size={32} />, link: "https://wa.me/19342032497", color: "text-green-500", label: "Direct" },
+    { icon: <FaFacebook size={32} />, link: "https://www.facebook.com/share/18h8Drdg6z/", color: "text-blue-600", label: "Connect" }
+  ];
+
   return (
-    <div className="relative min-h-screen bg-black text-white" dir="ltr">
-      <div className="galaxy-overlay fixed inset-0 pointer-events-none" />
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-amber-500/30 overflow-x-hidden">
       
-      {/* 1. Hero Section - Landscape box and side text */}
-      <section className="relative pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          
-          {/* Landscape Image Box */}
-          <div className="flex-1 w-full order-2 lg:order-1">
-            <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-safi-gold/20 shadow-[0_0_80px_rgba(212,175,55,0.1)] group">
-              <Image 
-                src="/hero.jpg" 
-                alt="Shaheen Safi Vision" 
-                fill 
-                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
-                priority 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      {/* 1. Hero Section - The "Top G" Introduction */}
+      <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-7 space-y-10">
+            <div className="inline-block px-4 py-1 border border-amber-500/30 rounded-full bg-amber-500/5 shadow-[0_0_20px_rgba(212,175,55,0.1)]">
+              <span className="text-amber-500 font-mono text-[10px] uppercase tracking-[0.5em] font-bold">The Digital Architect</span>
             </div>
-          </div>
+            
+            <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter leading-[0.8]">
+              SHAHEEN <br />
+              <span className="text-luxury">SAFI</span>
+            </h1>
 
-          {/* Hero Side Text */}
-          <div className="flex-1 space-y-8 order-1 lg:order-2 text-left">
-            <div className="space-y-4">
-              <span className="text-safi-gold font-mono tracking-widest text-sm uppercase">Founder & CEO</span>
-              <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase italic text-luxury leading-none">
-                Shaheen <br />
-                <span className="text-safi-gold">Safi</span>
-              </h1>
-            </div>
-            <p className="text-gray-400 text-xl md:text-2xl font-light leading-relaxed">
-              Pioneering the next generation of financial freedom. 
-              From mastering Linux at age 4 to building a global Fintech empire.
-            </p>
-            <div className="flex gap-4 justify-start items-center">
-              <div className="h-px w-12 bg-safi-gold"></div>
-              <span className="text-xs uppercase tracking-[0.4em] text-safi-gold/60 font-bold">Based in London</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 2. Story Section */}
-      <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto space-y-56">
-        
-        <h2 className="text-center text-luxury text-4xl md:text-6xl font-black mb-32 tracking-[0.2em] uppercase">
-          The Path of a Visionary
-        </h2>
-
-        {storyParagraphs.map((item, index) => (
-          <div 
-            key={item.id} 
-            className={`flex flex-col md:flex-row gap-20 items-center ${
-                index % 2 === 0 
-                ? 'md:flex-row' 
-                : 'md:flex-row-reverse'
-            }`}
-          >
-            <div className="flex-1 w-full max-w-[420px]">
-              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-[0_0_60px_rgba(212,175,55,0.15)] group">
-                <Image 
-                  src={item.img} 
-                  alt={item.title} 
-                  fill 
-                  className="object-cover transition-transform duration-1000 group-hover:scale-110" 
-                />
-                <div className="absolute top-6 left-6 bg-black/70 backdrop-blur-xl px-5 py-2 rounded-2xl border border-safi-gold/40 text-safi-gold font-mono font-bold">
-                  {item.year}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1 space-y-8 text-left">
-              <div className="flex items-center gap-6 justify-start">
-                <span className="text-safi-gold/50 font-mono text-xl tracking-tighter">PHASE_0{item.id}</span>
-                <div className="h-[1px] flex-grow bg-gradient-to-r from-amber-500/50 to-transparent"></div>
-              </div>
-              <h3 className="text-4xl md:text-5xl font-black text-luxury leading-tight">
-                {item.title}
-              </h3>
-              <p className="text-gray-400 text-xl md:text-2xl leading-relaxed font-light text-justify border-l-2 pl-6 border-zinc-900 hover:border-safi-gold transition-colors duration-500">
-                {item.text}
+            <div className="space-y-6 max-w-2xl">
+              <p className="text-2xl text-zinc-300 font-light leading-relaxed">
+                "I don't wait for the future; I compile it."
+              </p>
+              <p className="text-lg text-zinc-400 font-light leading-relaxed">
+                From exploring the hidden layers of the Dark Web at age 6 to establishing <span className="text-white font-medium">Safi International Capital</span> in London. Shaheen Safi is a force of nature in the Fintech world—a visionary who turned systemic exclusion into a blueprint for global inclusion. 
+                <span className="block mt-4 text-zinc-500 italic">
+                  Entrepreneur. Strategist. The mastermind behind SafiPay.
+                </span>
               </p>
             </div>
           </div>
-        ))}
-      </section>
 
-      {/* 3. CTA Section */}
-      <section className="py-40 text-center px-6">
-        <div className="glass-card max-w-5xl mx-auto p-20 rounded-[3rem] border border-safi-gold/10 bg-zinc-900/20 backdrop-blur-sm relative overflow-hidden">
-          <h2 className="text-5xl md:text-7xl font-black mb-10 text-luxury leading-tight">
-              FIXING THE FUTURE <br /> OF FINTECH
-          </h2>
-          <p className="text-gray-500 tracking-[0.8em] uppercase text-sm font-medium">
-            Safi International Capital LTD • London
-          </p>
+          <div className="lg:col-span-5 relative">
+            <div className="absolute -inset-4 bg-amber-500/10 blur-[80px] rounded-full" />
+            <div className="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden border border-white/10 group shadow-2xl">
+              <Image 
+                src="/hero.jpg" 
+                alt="Shaheen Safi CEO" 
+                fill 
+                className="object-cover transition-transform duration-[4s] group-hover:scale-110 grayscale hover:grayscale-0"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* 2. Bento Grid Section - The "Janjalak" Digital Footprint */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <h2 className="text-4xl font-black mb-16 uppercase italic tracking-tighter flex items-center gap-4">
+           Digital <span className="text-zinc-700">Footprint</span>
+           <div className="h-px flex-grow bg-zinc-900" />
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          
+          {/* Article Boxes */}
+          {mediumArticles.map((article, index) => (
+            <Link 
+              key={index} 
+              href={article.link} 
+              target="_blank"
+              className={`${article.size} ${article.bg} relative overflow-hidden border border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-end hover:border-amber-500/40 transition-all duration-500 group shadow-lg`}
+            >
+              {article.thumb && (
+                <div className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity">
+                   <Image src={article.thumb} alt="Preview" fill className="object-cover" />
+                </div>
+              )}
+              <div className="relative z-10 space-y-4">
+                <FaMedium className="text-amber-500/50 group-hover:text-amber-500 transition-colors" size={28} />
+                <h3 className="text-2xl font-black leading-tight group-hover:text-luxury transition-colors">
+                  {article.title}
+                </h3>
+              </div>
+            </Link>
+          ))}
+
+          {/* Social Mix - Janjalak Style */}
+          {socialLinks.map((social, index) => (
+            <Link 
+              key={index} 
+              href={social.link} 
+              target="_blank"
+              className="col-span-1 row-span-1 bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 hover:scale-95 transition-all hover:bg-zinc-800 hover:border-amber-500/20 group"
+            >
+              <span className={`${social.color} transition-transform group-hover:scale-110 duration-500`}>
+                {social.icon}
+              </span>
+              <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-zinc-600 group-hover:text-zinc-400">
+                {social.label}
+              </span>
+            </Link>
+          ))}
+
+          {/* Master Quote Box */}
+          <div className="col-span-1 md:col-span-2 row-span-1 border border-amber-500/20 rounded-[2.5rem] p-10 flex flex-col justify-center bg-gradient-to-br from-amber-500/5 to-transparent relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <FaMedium size={100} />
+            </div>
+            <p className="italic text-zinc-300 text-left font-serif text-xl leading-relaxed">
+              "Systemic barriers are just poorly written code waiting for a better architect."
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-20 border-t border-white/5 text-center">
+        <p className="text-zinc-600 font-mono text-[10px] uppercase tracking-[0.6em]">
+          London • Kabul • Istanbul • Dubai • Global Hub
+        </p>
+      </footer>
     </div>
   );
 }
