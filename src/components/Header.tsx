@@ -11,6 +11,7 @@ export default function Header({ lang }: { lang: 'en' | 'fa' }) {
   const menuItems = [
     { name: isRtl ? 'خانه' : 'Home', path: `/${lang}` },
     { name: isRtl ? 'درباره' : 'About', path: `/${lang}/about` },
+    { name: isRtl ? 'خدمات' : 'Services', path: `/${lang}/services` }, // بخش خدمات اضافه شد
     { name: isRtl ? 'پروژه‌ها' : 'Ventures', path: `/${lang}/victories` },
     { name: isRtl ? 'بلاگ' : 'Blog', path: `/${lang}/blog` },
   ];
@@ -20,8 +21,8 @@ export default function Header({ lang }: { lang: 'en' | 'fa' }) {
       <div className="max-w-5xl mx-auto flex items-center justify-between bg-black/40 backdrop-blur-2xl border border-white/5 p-2 md:p-3 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         
         {/* لوگو طلایی */}
-        <Link href={`/${lang}`} className="flex items-center gap-2 px-1 shrink-0">
-          <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-xl overflow-hidden border border-amber-500/20 group">
+        <Link href={`/${lang}`} className="flex items-center gap-2 px-1 shrink-0 group">
+          <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-xl overflow-hidden border border-amber-500/20">
             <Image src="/logo.jpeg" alt="Safi" fill className="object-cover transition-transform group-hover:scale-110" />
           </div>
           <span className="text-white font-black text-[12px] md:text-lg uppercase tracking-tighter italic">
@@ -46,12 +47,16 @@ export default function Header({ lang }: { lang: 'en' | 'fa' }) {
           ))}
         </nav>
 
-        {/* دکمه زبان دایره‌ای شیک */}
+        {/* دکمه زبان با پرچم */}
         <Link 
           href={pathname.replace(`/${lang}`, lang === 'en' ? '/fa' : '/en')}
-          className="shrink-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-amber-500 rounded-full text-black text-[9px] md:text-[11px] font-black shadow-[0_0_20px_rgba(245,158,11,0.3)] active:scale-90 transition-all"
+          className="shrink-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-zinc-900 border border-amber-500/40 hover:border-amber-500 rounded-full text-base md:text-xl shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:scale-105 active:scale-95 transition-all duration-300"
+          title={lang === 'en' ? 'تغییر به فارسی' : 'Switch to English'}
         >
-          {lang === 'en' ? 'FA' : 'EN'}
+          {/* اگر زبان فعلی انگلیسی است، پرچم افغانستان (برای تغییر به فارسی) و اگر فارسی است، پرچم بریتانیا نشان داده می‌شود */}
+          <span className="transform -translate-y-[1px] leading-none drop-shadow-md">
+            {lang === 'en' ? '🇦🇫' : '🇬🇧'}
+          </span>
         </Link>
 
       </div>

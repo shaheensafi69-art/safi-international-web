@@ -20,7 +20,7 @@ export default function Footer({ lang }: FooterProps) {
       items: [
         { name: "SafiPay", link: "https://safipay.net" },
         { name: "Safi TopUp", link: "https://safitopup.site" },
-        { name: "Safi International Capital", link: "#" },
+        { name: "Safi International Capital", link: "https://safiinternationalcapitalltd.site" },
         { name: "SafiPro", link: "https://safipro.site" },
       ]
     },
