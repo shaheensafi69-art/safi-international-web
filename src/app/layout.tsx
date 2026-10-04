@@ -62,12 +62,15 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
 
-        {/* کد ادسنس */}
+        {/* تأیید مالکیت و اتصال حساب گوگل ادسنس */}
+        <meta name="google-adsense-account" content="ca-pub-6551903544426492" />
+
+        {/* کد اصلی گوگل ادسنس */}
         <Script
           id="adsense-init"
           strategy="afterInteractive"
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2430648749257681"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6551903544426492"
           crossOrigin="anonymous"
         />
       </head>

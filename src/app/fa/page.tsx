@@ -23,6 +23,7 @@ import {
   FaGraduationCap,
   FaComments
 } from 'react-icons/fa6';
+import AdSenseUnit from '@/components/AdSenseUnit';
 
 export default function HomePageFa() {
   const ventures = [
@@ -538,6 +539,17 @@ export default function HomePageFa() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            💎 اسپانسر استراتژیک و آگهی برگزیده صنعت
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-6 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <AdSenseUnit 
+            lang="fa" 
+            variant="in-feed"
+            labelFa="حامی استراتژیک و آگهی برگزیده صنعت"
+          />
         </section>
 
         {/* ═══════════════════════════════════════════════════

@@ -1,5 +1,7 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import AdSenseInFeed from '@/components/AdSenseInFeed';
 
 export default function BlogHubFa() {
   // ۱. مقاله اصلی (Featured)
@@ -57,7 +59,7 @@ export default function BlogHubFa() {
           <p className="text-gray-500 font-mono tracking-widest uppercase text-sm md:text-base">تحلیل استراتژیک و نوآوری در فین‌تک</p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[minmax(250px,auto)]">
           
           {/* ۱. مقاله اصلی ویژه */}
           <Link href={mainBlog.fullPath} className="group lg:col-span-2 lg:row-span-2 border border-white/5 rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl relative">
@@ -74,34 +76,49 @@ export default function BlogHubFa() {
               </div>
           </Link>
 
-          {/* ۲. سایر مقالات */}
+          {/* ۲. سایر مقالات به همراه واحدهای تبلیغاتی همگام */}
           {allBlogs.map((blog, i) => (
-            <Link 
-              href={`/fa/blog/${blog.slug}`} 
-              key={i} 
-              className={`group border border-zinc-800 rounded-3xl overflow-hidden bg-zinc-900 hover:border-amber-500/50 transition-all shadow-lg hover:shadow-amber-500/5
-                ${blog.isPortrait ? 'lg:col-span-1 lg:row-span-2' : 'lg:col-span-1 lg:row-span-1'}`}
-            >
-              <div className={`relative w-full ${blog.isPortrait ? 'h-[70%]' : 'h-[60%]'} overflow-hidden bg-zinc-800`}>
-                <Image 
-                  src={`/blog/${blog.slug}/hero.png`} 
-                  alt={blog.title} 
-                  fill 
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-100" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent opacity-60" />
-              </div>
-              <div className="p-5 flex flex-col justify-center flex-grow text-right">
-                <div className="flex items-center gap-2 mb-1 justify-start">
-                  <span className="text-amber-500 font-mono text-[9px] uppercase tracking-tighter">{blog.cat}</span>
-                  <span className="text-zinc-700 text-[9px]">•</span>
-                  <span className="text-zinc-400 font-mono text-[9px]">{blog.date}</span>
+            <React.Fragment key={i}>
+              {/* واحد تبلیغات همگام شماره ۱ در ردیف سوم */}
+              {i === 2 && (
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <AdSenseInFeed lang="fa" labelFa="حامی استراتژیک • آگهی برگزیده صنعت" />
                 </div>
-                <h3 className={`font-bold group-hover:text-amber-500 transition-colors leading-tight uppercase ${blog.isPortrait ? 'text-xl' : 'text-sm'}`}>
-                  {blog.title}
-                </h3>
-              </div>
-            </Link>
+              )}
+
+              {/* واحد تبلیغات همگام شماره ۲ در میانه فید */}
+              {i === 10 && (
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <AdSenseInFeed lang="fa" labelFa="اسپانسر ویژه • آگهی رسمی شرکتی" />
+                </div>
+              )}
+
+              <Link 
+                href={`/fa/blog/${blog.slug}`} 
+                className={`group border border-zinc-800 rounded-3xl overflow-hidden bg-zinc-900 hover:border-amber-500/50 transition-all shadow-lg hover:shadow-amber-500/5
+                  ${blog.isPortrait ? 'lg:col-span-1 lg:row-span-2' : 'lg:col-span-1 lg:row-span-1'}`}
+              >
+                <div className={`relative w-full ${blog.isPortrait ? 'h-[70%]' : 'h-[60%]'} overflow-hidden bg-zinc-800`}>
+                  <Image 
+                    src={`/blog/${blog.slug}/hero.png`} 
+                    alt={blog.title} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-100" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent opacity-60" />
+                </div>
+                <div className="p-5 flex flex-col justify-center flex-grow text-right">
+                  <div className="flex items-center gap-2 mb-1 justify-start">
+                    <span className="text-amber-500 font-mono text-[9px] uppercase tracking-tighter">{blog.cat}</span>
+                    <span className="text-zinc-700 text-[9px]">•</span>
+                    <span className="text-zinc-400 font-mono text-[9px]">{blog.date}</span>
+                  </div>
+                  <h3 className={`font-bold group-hover:text-amber-500 transition-colors leading-tight uppercase ${blog.isPortrait ? 'text-xl' : 'text-sm'}`}>
+                    {blog.title}
+                  </h3>
+                </div>
+              </Link>
+            </React.Fragment>
           ))}
 
         </div>

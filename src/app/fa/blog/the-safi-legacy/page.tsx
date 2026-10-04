@@ -1,5 +1,7 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import AdSenseInFeed from '@/components/AdSenseInFeed';
 
 export default function SafiLegacyFa() {
   const storyPhases = [
@@ -70,31 +72,43 @@ export default function SafiLegacyFa() {
 
         <div className="space-y-48">
           {storyPhases.map((phase, index) => (
-            <div key={phase.id} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16 md:gap-24 items-center`}>
-              <div className="flex-1 w-full">
-                <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5 bg-zinc-900 group shadow-[0_0_100px_rgba(0,0,0,0.8)]">
-                  <Image src={phase.img} alt={phase.title} fill className="object-cover transition-transform duration-[2s] group-hover:scale-110" />
-                  <div className="absolute top-8 right-8">
-                    <span className="text-amber-500 font-mono text-xs font-black tracking-widest bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-amber-500/20">
-                      {phase.year}
-                    </span>
+            <React.Fragment key={phase.id}>
+              <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-16 md:gap-24 items-center`}>
+                <div className="flex-1 w-full">
+                  <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/5 bg-zinc-900 group shadow-[0_0_100px_rgba(0,0,0,0.8)]">
+                    <Image src={phase.img} alt={phase.title} fill className="object-cover transition-transform duration-[2s] group-hover:scale-110" />
+                    <div className="absolute top-8 right-8">
+                      <span className="text-amber-500 font-mono text-xs font-black tracking-widest bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-amber-500/20">
+                        {phase.year}
+                      </span>
+                    </div>
                   </div>
+                </div>
+
+                <div className="flex-1 space-y-8 text-right">
+                  <div className="flex items-center gap-4 flex-row-reverse">
+                    <span className="text-6xl font-black text-white/5 font-mono">{phase.id}</span>
+                    <div className="h-px flex-grow bg-gradient-to-l from-amber-500/30 to-transparent" />
+                  </div>
+                  <h3 className="text-4xl md:text-5xl font-black text-luxury leading-tight uppercase italic">
+                    {phase.title}
+                  </h3>
+                  <p className="text-gray-400 text-xl md:text-2xl leading-relaxed text-justify font-light">
+                    {phase.text}
+                  </p>
                 </div>
               </div>
 
-              <div className="flex-1 space-y-8 text-right">
-                <div className="flex items-center gap-4 flex-row-reverse">
-                  <span className="text-6xl font-black text-white/5 font-mono">{phase.id}</span>
-                  <div className="h-px flex-grow bg-gradient-to-l from-amber-500/30 to-transparent" />
+              {/* واحد تبلیغاتی همگام و شیک در میانه روایت */}
+              {index === 2 && (
+                <div className="w-full max-w-4xl mx-auto my-12">
+                  <AdSenseInFeed 
+                    lang="fa" 
+                    labelFa="حامی استراتژیک • آگهی برگزیده صنعت" 
+                  />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-black text-luxury leading-tight uppercase italic">
-                  {phase.title}
-                </h3>
-                <p className="text-gray-400 text-xl md:text-2xl leading-relaxed text-justify font-light">
-                  {phase.text}
-                </p>
-              </div>
-            </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
 

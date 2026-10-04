@@ -35,6 +35,8 @@ export default function Footer({ lang }: FooterProps) {
         { name: isRtl ? "پروژه‌ها و سرمایه‌گذاری" : "Ventures", link: `/${lang}/victories` },
         { name: isRtl ? "رزومه کامل" : "Executive CV", link: `/${lang}/cv` },
         { name: isRtl ? "وبلاگ تخصصی" : "Blog", link: `/${lang}/blog` },
+        { name: isRtl ? "سیاست حفظ حریم خصوصی" : "Privacy Policy", link: `/${lang}/privacy` },
+        { name: isRtl ? "شرایط و ضوابط" : "Terms of Service", link: `/${lang}/terms` },
         { name: isRtl ? "تماس مستقیم" : "Direct Contact", link: "https://wa.me/19342032497" },
       ]
     }
@@ -114,9 +116,20 @@ export default function Footer({ lang }: FooterProps) {
 
         </div>
 
-        <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-[10px] uppercase tracking-[0.2em]">
-          <p>{isRtl ? `© ${currentYear} تمامی حقوق محفوظ است` : `© ${currentYear} ALL RIGHTS RESERVED`}</p>
-          <div className="flex gap-6 font-bold">
+        <div className="border-t border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-500 text-[11px] font-mono tracking-wider">
+          <p>{isRtl ? `© ${currentYear} تمامی حقوق محفوظ است — شاهین صافی` : `© ${currentYear} ALL RIGHTS RESERVED — SHAHEEN SAFI`}</p>
+          
+          <div className="flex items-center gap-6 text-[11px] font-mono">
+            <Link href={`/${lang}/privacy`} className="hover:text-amber-400 transition-colors">
+              {isRtl ? "سیاست حفظ حریم خصوصی" : "Privacy Policy"}
+            </Link>
+            <span className="text-zinc-800">•</span>
+            <Link href={`/${lang}/terms`} className="hover:text-amber-400 transition-colors">
+              {isRtl ? "شرایط و ضوابط استفاده" : "Terms of Service"}
+            </Link>
+          </div>
+
+          <div className="flex gap-6 font-bold text-zinc-600 text-[10px] tracking-widest uppercase">
             <span>LONDON</span>
             <span>ISTANBUL</span>
             <span>KABUL</span>

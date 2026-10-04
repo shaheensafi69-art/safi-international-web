@@ -1,27 +1,37 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from 'next';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://shaheensafi.blog'
-  
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/en/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fa/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    // بقیه آدرس‌ها را هم اینجا اضافه کن
-  ]
+  const baseUrl = 'https://shaheensafi.blog';
+  const currentDate = new Date();
+
+  const routes = [
+    '',
+    '/en',
+    '/fa',
+    '/en/about',
+    '/fa/about',
+    '/en/services',
+    '/fa/services',
+    '/en/victories',
+    '/fa/victories',
+    '/en/cv',
+    '/fa/cv',
+    '/en/blog',
+    '/fa/blog',
+    '/en/privacy',
+    '/fa/privacy',
+    '/en/terms',
+    '/fa/terms',
+    '/en/blog/the-safi-legacy',
+    '/fa/blog/the-safi-legacy',
+    '/en/blog/fintech-afghanistan-future',
+    '/fa/blog/fintech-afghanistan-future',
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: currentDate,
+    changeFrequency: route.includes('/blog') ? 'weekly' : route.includes('/privacy') || route.includes('/terms') ? 'monthly' : 'daily',
+    priority: route === '' || route === '/en' || route === '/fa' ? 1.0 : route.includes('/privacy') || route.includes('/terms') ? 0.9 : 0.8,
+  }));
 }

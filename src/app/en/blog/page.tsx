@@ -1,5 +1,7 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import AdSenseInFeed from '@/components/AdSenseInFeed';
 
 export default function BlogPageEn() {
   // ۱. مقاله اصلی (Featured)
@@ -57,7 +59,7 @@ export default function BlogPageEn() {
           <p className="text-gray-500 font-mono tracking-widest uppercase">Strategic Analysis & Fintech Innovation</p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[minmax(250px,auto)]">
           
           {/* 1. Main Featured Post */}
           <Link href={mainBlog.fullPath} className="group lg:col-span-2 lg:row-span-2 border border-white/5 rounded-3xl overflow-hidden bg-zinc-900 shadow-2xl relative">
@@ -74,14 +76,28 @@ export default function BlogPageEn() {
               </div>
           </Link>
 
-          {/* 2. All Other Posts - Now fully active */}
+          {/* 2. All Other Posts with In-Feed Ads */}
           {allBlogs.map((blog, i) => (
-            <Link 
-              href={`/en/blog/${blog.slug}`} 
-              key={i} 
-              className={`group border border-zinc-800 rounded-3xl overflow-hidden bg-zinc-900 hover:border-amber-500/50 transition-all shadow-lg hover:shadow-amber-500/5
-                ${blog.isPortrait ? 'lg:col-span-1 lg:row-span-2' : 'lg:col-span-1 lg:row-span-1'}`}
-            >
+            <React.Fragment key={i}>
+              {/* Strategic In-Feed Ad Unit #1 at index 2 (beginning of row 3) */}
+              {i === 2 && (
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <AdSenseInFeed lang="en" labelEn="SPONSORED INSIGHT • STRATEGIC PARTNER" />
+                </div>
+              )}
+
+              {/* Strategic In-Feed Ad Unit #2 at index 10 */}
+              {i === 10 && (
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <AdSenseInFeed lang="en" labelEn="FEATURED SPONSOR • VERIFIED GLOBAL AD" />
+                </div>
+              )}
+
+              <Link 
+                href={`/en/blog/${blog.slug}`} 
+                className={`group border border-zinc-800 rounded-3xl overflow-hidden bg-zinc-900 hover:border-amber-500/50 transition-all shadow-lg hover:shadow-amber-500/5
+                  ${blog.isPortrait ? 'lg:col-span-1 lg:row-span-2' : 'lg:col-span-1 lg:row-span-1'}`}
+              >
               <div className={`relative w-full ${blog.isPortrait ? 'h-[70%]' : 'h-[60%]'} overflow-hidden bg-zinc-800`}>
                 <Image 
                   src={`/blog/${blog.slug}/hero.png`} 
@@ -103,7 +119,8 @@ export default function BlogPageEn() {
                 </h3>
               </div>
             </Link>
-          ))}
+          </React.Fragment>
+        ))}
 
         </div>
       </div>
