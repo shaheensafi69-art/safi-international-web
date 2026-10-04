@@ -9,10 +9,10 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
+  params?: Promise<{ lang?: string }>;
 }) {
   const resolvedParams = await params;
-  const lang = resolvedParams.lang || "en";
+  const lang = resolvedParams?.lang || "en";
 
   // داده‌های ساختاریافته برای شناسایی هویت شاهین صافی توسط گوگل
   const personSchema = {
