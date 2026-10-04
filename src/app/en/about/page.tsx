@@ -13,27 +13,39 @@ export default function AboutPage() {
     },
     {
       name: 'Safi International Capital LTD',
-      category: 'Financial Services',
+      category: 'Institutional Venture Capital',
       description: 'UK-registered company (No. 17063286) based in London, focused on financial services and international capital management with British standards.',
       link: 'London, UK'
     },
     {
       name: 'Safi TopUp',
-      category: 'Digital Services',
+      category: 'Digital Services & Telecom',
       description: 'Global platform for sending mobile credit to over 150 countries, international data bundles, and digital/gaming gift cards.',
       link: 'www.safitopup.site'
     },
     {
+      name: 'ZEV App',
+      category: 'Decentralized Social Network',
+      description: 'Next-generation social media platform built for privacy, freedom of speech, encrypted communication, and direct creator monetization.',
+      link: 'www.zevapp.com'
+    },
+    {
+      name: 'Safi Academy',
+      category: 'EdTech & Youth Empowerment',
+      description: 'Educational foundation providing world-class training in software engineering, AI, and digital skills to empower Afghan and global students.',
+      link: 'www.safiacademy.org'
+    },
+    {
       name: 'SafiPro',
-      category: 'E-commerce Brand',
-      description: 'Modern e-commerce platform offering high-quality clothing with unique designs and a wide range of digital products.',
+      category: 'Luxury Fashion & E-commerce',
+      description: 'Modern luxury lifestyle brand offering high-quality contemporary apparel with unique designs and global direct-to-consumer fulfillment.',
       link: 'www.safipro.site'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-300 selection:bg-[#D4AF37] selection:text-black pt-32 pb-24 px-6 font-sans" dir="ltr">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[#050505] text-zinc-300 selection:bg-[#D4AF37] selection:text-black pt-28 pb-24 px-3 sm:px-6 font-sans" dir="ltr">
+      <div className="w-[98%] max-w-[1500px] mx-auto">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center mb-28 border-b border-zinc-800/50 pb-20">

@@ -101,7 +101,7 @@ export default function CVPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-300 selection:bg-[#D4AF37] selection:text-black font-sans relative overflow-hidden flex justify-center py-20 px-4 md:px-8" dir="rtl">
+    <div className="min-h-screen bg-[#050505] text-zinc-300 selection:bg-[#D4AF37] selection:text-black font-sans relative overflow-hidden flex justify-center pt-28 pb-20 px-2 sm:px-4 md:px-6" dir="rtl">
       
       {/* Animated 3D Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -110,7 +110,7 @@ export default function CVPage() {
         <div className="absolute top-[40%] left-[60%] w-[20rem] h-[20rem] bg-[#D4AF37] opacity-[0.02] rounded-full blur-[80px] animate-[bounce_15s_ease-in-out_infinite]"></div>
       </div>
 
-      <div className="max-w-7xl w-full flex flex-col md:flex-row gap-10 relative z-10">
+      <div className="w-[98%] max-w-[1600px] flex flex-col md:flex-row gap-8 lg:gap-10 relative z-10">
         
         {/* RIGHT SIDEBAR (In RTL, md:flex-row naturally puts this on the right) */}
         <div className="w-full md:w-80 shrink-0 flex flex-col gap-8">

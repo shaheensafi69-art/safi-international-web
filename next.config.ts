@@ -4,10 +4,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  // اگر از تصاویر لوگو استفاده می‌کنی این هم لازم است
   images: {
     unoptimized: true,
   }

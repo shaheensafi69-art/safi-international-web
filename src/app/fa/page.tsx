@@ -2,242 +2,676 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaLinkedin, FaInstagram, FaTiktok, FaWhatsapp, FaFacebook, FaMedium } from 'react-icons/fa6';
+import { 
+  FaLinkedin, 
+  FaInstagram, 
+  FaTiktok, 
+  FaWhatsapp, 
+  FaFacebook, 
+  FaMedium, 
+  FaXTwitter, 
+  FaArrowLeft, 
+  FaShieldHalved, 
+  FaGlobe, 
+  FaChartLine, 
+  FaBolt, 
+  FaBuildingColumns, 
+  FaCreditCard, 
+  FaNetworkWired, 
+  FaBriefcase, 
+  FaCrown,
+  FaGraduationCap,
+  FaComments
+} from 'react-icons/fa6';
 
 export default function HomePageFa() {
+  const ventures = [
+    {
+      name: "SafiPay",
+      badge: "پروژه پیشرو فین‌تک",
+      tagline: "بانکداری دیجیتال اروپایی و زیرساخت صدور آنی کارت‌های ویزا",
+      description: "سافی‌پی هسته اصلی زیرساخت مالی ما است که برای شکستن انزوای مالی طراحی شده است. ارائه شماره حساب‌های اختصاصی چندارزی اروپایی (یورو، دلار، پوند) و صدور آنی کارت‌های فیزیکی و مجازی ویزا در اتحادیه اروپا برای بازارهای در حال ظهور، مهاجران و کارآفرینان بین‌المللی.",
+      image: "/safipay.jpeg",
+      link: "https://safipay.net",
+      metrics: ["شماره حساب چندارزی IBAN", "کارت ویزا اتحادیه اروپا", "اتصال به Stripe و PayPal"],
+      accent: "from-amber-500/20 via-amber-500/5 to-transparent",
+      border: "hover:border-amber-400/50",
+      btnText: "ورود به SafiPay",
+    },
+    {
+      name: "Safi TopUp",
+      badge: "شبکه جهانی توزیع دیجیتال",
+      tagline: "پل ارتباطی ارسال کردیت، بسته دیتا و خدمات بین‌المللی مخابراتی",
+      description: "یک شبکه توزیع با سرعت بی‌نظیر که مستقیماً به بیش از ۷۰۰ اپراتور تلفن همراه در جهان متصل است. ارسال کردیت مکالمه، بسته‌های بین‌المللی eSIM و گیفت‌کارت‌های دیجیتال در بیش از ۱۵۰ کشور جهان در کسری از ثانیه.",
+      image: "/safitopup.jpeg",
+      link: "https://safitopup.site",
+      metrics: ["۷۰۰+ اپراتور جهانی", "فعال در ۱۵۰+ کشور", "تحویل آنی و خودکار"],
+      accent: "from-blue-500/20 via-blue-500/5 to-transparent",
+      border: "hover:border-blue-400/50",
+      btnText: "کاوش در Safi TopUp",
+    },
+    {
+      name: "Safi International Capital",
+      badge: "سرمایه‌گذاری خطرپذیر لندن",
+      tagline: "مدیریت دارایی فرامرزی، نقدینگی استراتژیک و توسعه در بازارهای نوظهور",
+      description: "ثبت شده در لندن بریتانیا، شرکت بین‌المللی کپیتال صافی به عنوان بازوی نهادی سرمایه‌گذاری و توسعه گروه فعالیت می‌کند؛ با تمرکز بر تخصیص هوشمندانه سرمایه در فناوری‌های مالی نوین و گسترش زیرساخت‌های بین‌المللی.",
+      image: "/saficapital.png",
+      link: "https://safiinternationalcapitalltd.site",
+      metrics: ["ثبت رسمی در لندن", "حاکمیت شرکتی پیشرفته", "سرمایه‌گذاری خطرپذیر"],
+      accent: "from-emerald-500/20 via-emerald-500/5 to-transparent",
+      border: "hover:border-emerald-400/50",
+      btnText: "آشنایی با کپیتال",
+    },
+    {
+      name: "ZEV App",
+      badge: "شبکه اجتماعی نسل جدید",
+      tagline: "پلتفرم اجتماعی غیرمتمرکز، آزادی بیان و اقتصاد سازندگان محتوا",
+      description: "اپلیکیشن زِو (ZEV) پلتفرم نوین شبکه اجتماعی ماست که با هدف حاکمیت داده‌های شخصی، ارتباطات رمزنگاری‌شده، آزادی بیان واقعی و درآمدزایی مستقیم سازندگان محتوا بدون واسطه طراحی شده است.",
+      image: "/zev.png",
+      link: "https://www.zevapp.com",
+      metrics: ["حفظ حریم خصوصی", "درآمدزایی سازندگان", "پیام‌رسان امن"],
+      accent: "from-cyan-500/20 via-cyan-500/5 to-transparent",
+      border: "hover:border-cyan-400/50",
+      btnText: "ورود به اپلیکیشن ZEV",
+    },
+    {
+      name: "Safi Academy",
+      badge: "آموزش و توانمندسازی جوانان",
+      tagline: "مرکز تخصصی آموزش فناوری‌های نوین، برنامه‌نویسی و سواد دیجیتال",
+      description: "صافی اکادمی ابتکار آموزشی پیشگام ما برای آموزش و توانمندسازی نسل جوان و دانشجویان در زمینه‌های برنامه‌نویسی پیشرفته، هوش مصنوعی، تجارت الکترونیک و مهارت‌های نوین بازار کار جهانی است.",
+      image: "/safiacademy.png",
+      link: "https://safiacademy.org",
+      metrics: ["دوره‌های کدنویسی و AI", "توانمندسازی جوانان", "گواهینامه‌های معتبر"],
+      accent: "from-amber-500/20 via-emerald-500/5 to-transparent",
+      border: "hover:border-amber-400/50",
+      btnText: "ورود به صافی اکادمی",
+    },
+    {
+      name: "SafiPro",
+      badge: "برند مد و لایف‌استایل لوکس",
+      tagline: "طراحی مدرن صنعتی و تجارت بین‌المللی D2C",
+      description: "صافی‌پرو بخش تخصصی سبک زندگی و مد معاصر ماست. تلفیقی از ظرافت طراحی مدرن و متریال صنعتی باکیفیت برای تولید پوشاک شیک که مستقیماً به مشتریان سراسر دنیا عرضه می‌شود.",
+      image: "/safipro.jpeg",
+      link: "https://safipro.site",
+      metrics: ["طراحی اختصاصی", "ارسال سریع بین‌المللی", "کیفیت پارچه صنعتی"],
+      accent: "from-purple-500/20 via-purple-500/5 to-transparent",
+      border: "hover:border-purple-400/50",
+      btnText: "مشاهده SafiPro",
+    }
+  ];
+
+  const impactMetrics = [
+    { value: "+۱۰ میلیون دلار", label: "زیرساخت مبادلات مالی", detail: "طراحی شده برای انتقال ایمن با حجم بالا" },
+    { value: "+۱۵۰ کشور", label: "پوشش بازارهای بین‌المللی", detail: "کریدورهای ارتباطی فعال فرامرزی" },
+    { value: "+۷۰۰ اپراتور", label: "اپراتورهای مخابراتی متصل", detail: "اتصال مستقیم از طریق رابط‌های اختصاصی API" },
+    { value: "۴ قطب جهانی", label: "مراکز راهبردی عملیات", detail: "لندن • دبی • استانبول • کابل" },
+    { value: "۹۹.۹۹٪", label: "پایداری زیرساخت", detail: "استاندارد آپ‌تایم سازمانی و سیستم Zero-Trust" },
+  ];
+
+  const pillars = [
+    {
+      icon: <FaBuildingColumns className="text-amber-400" size={28} />,
+      title: "مهندسی فین‌تک و شمولیت مالی",
+      desc: "توسعه ساختارهای نوین بانکداری دیجیتال که دسترسی آزاد به امور مالی را برای کسانی که از سیستم‌های سنتی محروم بوده‌اند ممکن می‌سازد."
+    },
+    {
+      icon: <FaShieldHalved className="text-amber-400" size={28} />,
+      title: "دقت نظارتی و رعایت استانداردها",
+      desc: "پیاده‌سازی خودکار و دقیق استانداردهای اروپایی KYC/AML و الزامات امنیتی بین‌المللی بدون ایجاد اختلال در سرعت تبادلات."
+    },
+    {
+      icon: <FaNetworkWired className="text-amber-400" size={28} />,
+      title: "توزیع بدون تاخیر داده‌ها و اعتبار",
+      desc: "درگاه‌های مقیاس‌پذیر مخابراتی با قابلیت پردازش صدها هزار تراکنش دیجیتال در صدم ثانیه با ضریب اطمینان حداکثری."
+    },
+    {
+      icon: <FaChartLine className="text-amber-400" size={28} />,
+      title: "تخصیص راهبردی سرمایه",
+      desc: "هدایت سرمایه و نقدینگی نهادی به سمت فرصت‌های بکر فناوری در بازارهای مستعد و رو به رشد خاورمیانه و آسیای میانه."
+    }
+  ];
+
   const mediumArticles = [
     {
       title: "زیرساخت اعتماد: چگونه SafiPay در حال بازتعریف بانکداری است",
+      excerpt: "بررسی عمیق معماری فنی پشت پلتفرم سافی‌پی، ایجاد حساب‌های چندارزی، امنیت انطباقی و شمولیت مالی پایدار.",
       link: "https://medium.com/@omulbaninmoradi188/the-infrastructure-of-trust-how-safipay-is-redefining-digital-banking-security-in-emerging-markets-439b14641ad5",
-      size: "md:col-span-2 md:row-span-2",
-      bg: "bg-gradient-to-br from-zinc-900/90 to-black",
-      thumb: "/hero.jpg" // می‌توانید اسکرین‌شات مقاله را بگذارید
+      tag: "معماری فین‌تک",
+      readTime: "خواندن ۶ دقیقه",
+      thumb: "/hero.jpg"
     },
     {
-      title: "آشنایی با شاهین صافی",
-      link: "https://medium.com/@omulbaninmoradi188/introduction-10633ed36932",
-      size: "md:col-span-1 md:row-span-1",
-      bg: "bg-gradient-to-br from-[#D4AF37]/10 to-transparent",
-      thumb: null
-    },
-    {
-      title: "تعالی نظارتی در امور مالی دیجیتال",
+      title: "تعالی نظارتی در امور مالی دیجیتال: بررسی عملیات اروپایی",
+      excerpt: "چگونه پایبندی به الزامات نظارتی اتحادیه اروپا، سافی‌پی را به یک پیشرو قابل اعتماد در حوزه فین‌تک تبدیل کرد.",
       link: "https://medium.com/@jsana9033/regulatory-excellence-in-digital-finance-a-case-study-of-safipays-european-operations-5f9a6a1845ad",
-      size: "md:col-span-1 md:row-span-2",
-      bg: "bg-gradient-to-bl from-zinc-800/80 to-zinc-950",
-      thumb: null
+      tag: "انطباق مالی بین‌المللی",
+      readTime: "خواندن ۵ دقیقه",
+      thumb: "/safipay.jpeg"
+    },
+    {
+      title: "دیدگاه یک کارآفرین: شاهین صافی کیست؟",
+      excerpt: "مسیر تسلیم‌ناپذیر تا آزادی مالی—از کودکی برنامه‌نویس تا تأسیس شرکت‌های بزرگ بین‌المللی.",
+      link: "https://medium.com/@safipro011/the-vision-of-an-entrepreneur-who-is-shaheen-safi-7a2229cb4fbd",
+      tag: "رهبری و بینش",
+      readTime: "خواندن ۸ دقیقه",
+      thumb: "/shaheen1.jpeg"
     }
   ];
 
   const socialLinks = [
-    { icon: <FaLinkedin size={28} />, link: "https://www.linkedin.com/in/shaheen-safi-b73a30299", color: "text-blue-400", label: "حرفه‌ای" },
-    { icon: <FaInstagram size={28} />, link: "https://www.instagram.com/top_g_official1", color: "text-pink-500", label: "لایف‌استایل" },
-    { icon: <FaTiktok size={28} />, link: "https://www.tiktok.com/@safi_sahib6", color: "text-white", label: "پشت‌صحنه" },
-    { icon: <FaWhatsapp size={28} />, link: "https://wa.me/19342032497", color: "text-emerald-400", label: "مستقیم" },
-    { icon: <FaFacebook size={28} />, link: "https://www.facebook.com/share/18h8Drdg6z/", color: "text-blue-600", label: "ارتباط" }
+    { icon: <FaLinkedin size={22} />, link: "https://www.linkedin.com/in/shaheen-safi-b73a30299", color: "text-blue-400", label: "لینکدین" },
+    { icon: <FaXTwitter size={22} />, link: "https://x.com/shaheensafi011", color: "text-zinc-200", label: "توییتر (X)" },
+    { icon: <FaInstagram size={22} />, link: "https://www.instagram.com/top_g_official1", color: "text-pink-400", label: "اینستاگرام" },
+    { icon: <FaTiktok size={22} />, link: "https://www.tiktok.com/@safi_sahib6", color: "text-zinc-100", label: "تیک‌تاک" },
+    { icon: <FaWhatsapp size={22} />, link: "https://wa.me/19342032497", color: "text-emerald-400", label: "واتساپ VIP" },
+    { icon: <FaFacebook size={22} />, link: "https://www.facebook.com/share/18h8Drdg6z/", color: "text-blue-500", label: "فیسبوک" },
+    { icon: <FaMedium size={22} />, link: "https://medium.com/@shaheensafi09", color: "text-amber-400", label: "مقالات مدیوم" },
+  ];
+
+  const hubs = [
+    { city: "لندن", country: "بریتانیا", role: "دفتر مرکزی و سرمایه‌گذاری بین‌المللی", flag: "🇬🇧" },
+    { city: "دبی", country: "امارات متحده عربی", role: "نوآوری مالی و هاب تجارت منطقه‌ای", flag: "🇦🇪" },
+    { city: "استانبول", country: "ترکیه", role: "زنجیره تأمین و عملیات تجاری", flag: "🇹🇷" },
+    { city: "کابل", country: "افغانستان", role: "کانون اصلی شمولیت مالی", flag: "🇦🇫" },
   ];
 
   return (
-    <div className="min-h-screen bg-[#030303] text-white font-sans selection:bg-[#D4AF37]/30 selection:text-white overflow-x-hidden relative" dir="rtl">
+    <div className="min-h-screen bg-[#050507] text-white selection:bg-amber-400/30 selection:text-white relative overflow-hidden" dir="rtl">
       
-      {/* 🌌 Cinematic Animated Background */}
+      {/* 🌌 Atmospheric Ambient Background Lighting */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[50rem] h-[50rem] bg-[#D4AF37] opacity-[0.04] rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[-20%] left-[-10%] w-[40rem] h-[40rem] bg-zinc-500 opacity-[0.03] rounded-full blur-[150px] animate-[pulse_12s_ease-in-out_infinite_reverse]"></div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        <div className="absolute top-[-15%] right-[-10%] w-[55rem] h-[55rem] bg-amber-500/10 rounded-full blur-[140px] animate-pulse-subtle"></div>
+        <div className="absolute top-[40%] left-[-15%] w-[45rem] h-[45rem] bg-zinc-600/10 rounded-full blur-[160px] animate-pulse-subtle"></div>
+        <div className="absolute bottom-[-10%] right-[20%] w-[50rem] h-[50rem] bg-amber-600/5 rounded-full blur-[150px]"></div>
+        <div className="absolute inset-0 bg-grid-mesh opacity-25"></div>
       </div>
 
       <div className="relative z-10">
-        {/* 👑 Hero Section - The "Top G" Introduction */}
-        <section className="min-h-screen flex items-center pt-20 pb-20 px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+
+        {/* ═══════════════════════════════════════════════════
+            👑 بخش ۱: هروسکشن فرماندهی و معرفی شاهین صافی
+        ═══════════════════════════════════════════════════ */}
+        <section className="min-h-screen flex items-center pt-24 pb-14 md:pt-32 md:pb-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
             
-            {/* Right Content (Text) */}
-            <div className="lg:col-span-7 space-y-10 relative">
+            {/* ستون متن و معرفی */}
+            <div className="lg:col-span-7 space-y-7">
               
-              {/* Floating Badge */}
-              <div className="inline-flex items-center gap-3 px-5 py-2 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/5 backdrop-blur-md shadow-[0_0_30px_rgba(212,175,55,0.15)] animate-[float_4s_ease-in-out_infinite]">
-                <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
-                <span className="text-[#D4AF37] font-mono text-xs uppercase tracking-[0.4em] font-bold">معمار دیجیتال</span>
+              {/* نشانگر وضعیت زنده */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 border border-amber-400/30 rounded-full bg-amber-400/5 backdrop-blur-xl shadow-[0_0_25px_rgba(212,175,55,0.15)]">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-amber-300 font-mono text-xs uppercase tracking-widest font-bold">
+                  معمار سیستم‌های دیجیتال • کارآفرین بین‌المللی
+                </span>
               </div>
               
-              {/* Massive 3D Typography */}
-              <div className="relative">
-                <h1 className="text-[5rem] sm:text-[7rem] md:text-[9rem] font-black tracking-tighter leading-[0.85] uppercase" dir="ltr">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-300 to-zinc-600 block drop-shadow-2xl hover:-translate-x-2 transition-transform duration-500 text-right">
-                    SHAHEEN
+              {/* تیتر بزرگ با استایل لوکس */}
+              <div className="space-y-1">
+                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black italic tracking-tight leading-[0.95] uppercase">
+                  <span className="text-silver block drop-shadow-2xl">
+                    شاهین
                   </span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] via-[#a88721] to-[#5c490f] block drop-shadow-[0_10px_20px_rgba(212,175,55,0.2)] hover:-translate-x-4 transition-transform duration-500 text-right">
-                    SAFI
+                  <span className="text-luxury block drop-shadow-[0_10px_30px_rgba(212,175,55,0.3)]">
+                    صافی
                   </span>
                 </h1>
+                <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-wider uppercase pt-2">
+                  معماری آزادی مالی و پیوند بازارهای جهانی
+                </p>
               </div>
 
-              <div className="space-y-8 max-w-2xl relative">
-                <div className="absolute -right-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] to-transparent opacity-50 rounded-full"></div>
-                <p className="text-3xl text-white font-light leading-snug tracking-wide">
-                  «من منتظر آینده نمی‌مانم؛ <br/> <span className="font-bold text-[#D4AF37] italic">آن را کدنویسی می‌کنم.</span>»
+              {/* بیانیه و چشم‌انداز */}
+              <div className="space-y-4 max-w-2xl border-r-2 border-amber-400/40 pr-6 py-1">
+                <blockquote className="text-2xl md:text-3xl text-zinc-100 font-light leading-snug">
+                  «من منتظر آینده نمی‌مانم؛ <br />
+                  <span className="font-extrabold text-luxury italic">من آینده را کدنویسی می‌کنم.</span>»
+                </blockquote>
+                <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
+                  از کاوش در لایه‌های بنیادین کدنویسی در سن ۶ سالگی تا ثبت و هدایت <span className="text-white font-medium">Safi International Capital</span> در پایتخت مالی بریتانیا (لندن). شاهین صافی با مهندسی پلتفرم‌های <span className="text-amber-300 font-medium">SafiPay</span>، <span className="text-amber-300 font-medium">Safi TopUp</span>، <span className="text-amber-300 font-medium">ZEV App</span>، <span className="text-amber-300 font-medium">Safi Academy</span> و <span className="text-amber-300 font-medium">SafiPro</span> توانسته موانع مالی سنتی را کنار زده و نسل نوینی از اقتصاد دیجیتال را در سطح فرامرزی پایه‌گذاری کند.
                 </p>
-                <p className="text-lg text-zinc-400 font-light leading-relaxed text-justify">
-                  از کشف لایه‌های پنهان دارک‌وب در ۶ سالگی تا تأسیس <span className="text-white font-medium border-b border-[#D4AF37]/50 pb-0.5">Safi International Capital</span> در لندن. شاهین صافی نیرویی مهارنشدنی در دنیای فین‌تک است؛ ایده‌پردازی که محدودیت‌های سیستماتیک را به طرحی جامع برای شمول مالی در سطح جهانی تبدیل کرد.
-                </p>
-                <div className="text-zinc-500 font-mono text-sm tracking-widest border border-zinc-800/50 inline-block px-4 py-2 rounded-lg bg-zinc-900/30">
-                  کارآفرین • استراتژیست • معمار SafiPay
+              </div>
+
+              {/* قابلیت‌های سریع و اعتماد سازی */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl pt-1">
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">بانکداری اروپا</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">کارت ویزا و IBAN</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">۷۰۰+ اپراتور</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">شبکه مخابرات جهانی</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">شبکه ZEV</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">اپلیکیشن اجتماعی</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">صافی اکادمی</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">آموزش فناوری</p>
                 </div>
               </div>
 
-              {/* 🌟 THE CV BUTTON 🌟 */}
-              <div className="pt-4 flex flex-wrap gap-6 items-center">
+              {/* دکمه‌های اصلی فراخوان */}
+              <div className="pt-2 flex flex-wrap gap-4 items-center">
                 <Link 
-                  href="/fa/cv" 
-                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 bg-gradient-to-r from-[#D4AF37] to-[#aa8822] text-black font-black uppercase tracking-[0.2em] rounded-full overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:shadow-[0_0_60px_rgba(212,175,55,0.6)] hover:scale-[1.02] transition-all duration-500"
+                  href="#ventures" 
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-black font-black uppercase text-xs md:text-sm tracking-wider rounded-full overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.4)] hover:shadow-[0_0_55px_rgba(212,175,55,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
-                  <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-                  <span className="relative z-10 flex items-center gap-3">
-                    <svg className="w-5 h-5 group-hover:-translate-x-2 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                    مشاهده رزومه من
+                  <span className="relative z-10 flex items-center gap-2">
+                    مشاهده اکوسیستم و پروژه‌ها
+                    <FaArrowLeft className="group-hover:-translate-x-1.5 transition-transform duration-300" />
                   </span>
                 </Link>
-                
-                <Link href="#footprint" className="group flex items-center gap-3 text-zinc-400 hover:text-white font-mono text-sm tracking-widest uppercase transition-colors">
-                  ردپای دیجیتال
-                  <span className="w-12 h-px bg-zinc-700 group-hover:bg-[#D4AF37] transition-colors"></span>
+
+                <Link 
+                  href="/fa/cv" 
+                  className="inline-flex items-center gap-2 px-8 py-4 glass-card border border-white/15 hover:border-amber-400/50 text-white font-bold uppercase text-xs md:text-sm tracking-wider rounded-full hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg"
+                >
+                  رزومه مدیریتی (CV)
+                </Link>
+
+                <Link 
+                  href="https://wa.me/19342032497" 
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-6 py-4 text-emerald-400 hover:text-emerald-300 font-mono text-xs uppercase tracking-wider transition-colors"
+                >
+                  <FaWhatsapp size={16} />
+                  <span>خط ارتباطی مستقیم</span>
                 </Link>
               </div>
 
             </div>
 
-            {/* Left Content - Hero Image */}
-            <div className="lg:col-span-5 relative perspective-1000">
-              <div className="absolute -inset-10 bg-gradient-to-tl from-[#D4AF37]/20 to-transparent blur-[100px] rounded-full mix-blend-screen" />
+            {/* ستون راست: فریم تصویر سه بعدی شیشه‌ای */}
+            <div className="lg:col-span-5 relative">
               
-              {/* Glass Frame around Image */}
-              <div className="relative aspect-[4/5] rounded-[2.5rem] p-3 bg-zinc-900/40 backdrop-blur-2xl border border-white/10 shadow-2xl transform transition-transform duration-700 hover:rotate-y-[5deg] hover:rotate-x-[5deg]">
-                <div className="relative w-full h-full rounded-[2rem] overflow-hidden group">
+              {/* هاله نور طلایی پشت تصویر */}
+              <div className="absolute -inset-4 bg-gradient-to-tl from-amber-500/25 via-amber-400/10 to-transparent blur-[80px] rounded-full mix-blend-screen pointer-events-none" />
+              
+              {/* قاب شیشه‌ای لوکس */}
+              <div className="relative aspect-[4/5] rounded-[2.5rem] p-3 bg-gradient-to-b from-white/10 to-white/0 backdrop-blur-2xl border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.8)] group transition-all duration-500 hover:border-amber-400/40">
+                <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
                   <Image 
                     src="/shaheen4.jpeg" 
-                    alt="شاهین صافی مدیرعامل" 
+                    alt="شاهین صافی - بنیانگذار و مدیرعامل" 
                     fill 
-                    className="object-cover transition-all duration-[2s] group-hover:scale-110 grayscale-[50%] group-hover:grayscale-0"
+                    className="object-cover transition-all duration-700 group-hover:scale-105 filter grayscale-[25%] group-hover:grayscale-0"
                     priority
                   />
-                  {/* Overlay Gradient for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
                   
-                  <div className="absolute bottom-8 right-8 left-8 text-right">
-                    <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                      <p className="text-white font-mono text-xs tracking-widest uppercase mb-1">وضعیت</p>
-                      <p className="text-[#D4AF37] font-bold">در حال ساخت آینده مالی</p>
-                    </div>
+                  {/* گرادینت تیره روی تصویر برای نمایش متن */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  
+                  {/* برچسب شناور: لندن */}
+                  <div className="absolute top-5 left-5 backdrop-blur-md bg-black/60 border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="text-sm">🇬🇧</span>
+                    <span className="text-zinc-300 font-mono text-[10px] tracking-wider uppercase font-semibold">دفتر مرکزی: لندن</span>
                   </div>
+
+                  {/* برچسب شناور: وضعیت SafiPay */}
+                  <div className="absolute top-5 right-5 backdrop-blur-md bg-black/60 border border-amber-400/30 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span className="text-amber-300 font-mono text-[10px] tracking-wider uppercase font-bold">زیرساخت SafiPay: فعال</span>
+                  </div>
+
+                  {/* پنل شیشه‌ای اطلاعات هویتی */}
+                  <div className="absolute bottom-6 left-6 right-6 backdrop-blur-xl bg-black/70 border border-white/15 p-5 rounded-2xl space-y-2 shadow-2xl transform transition-transform duration-300 group-hover:-translate-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-luxury font-black text-sm uppercase tracking-wider">شاهین صافی</span>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                        مدیر ارشد تأیید شده
+                      </span>
+                    </div>
+                    <p className="text-zinc-300 text-xs font-light leading-relaxed">
+                      هدایت پروژه‌های فرامرزی در حوزه فناوری‌های مالی، شبکه‌های اجتماعی، آموزش و تجارت مدرن.
+                    </p>
+                  </div>
+
                 </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            📊 بخش ۲: آمارهای کلیدی و دستاوردهای عددی
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-8 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-5">
+            {impactMetrics.map((metric, idx) => (
+              <div 
+                key={idx} 
+                className="glass-card-gold p-5 md:p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group"
+              >
+                <div>
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-black text-luxury tracking-tight group-hover:scale-105 transition-transform duration-300">
+                    {metric.value}
+                  </p>
+                  <p className="text-white font-bold text-xs uppercase tracking-wider mt-2">
+                    {metric.label}
+                  </p>
+                </div>
+                <p className="text-zinc-500 text-[11px] font-mono mt-3 leading-normal">
+                  {metric.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🏛️ بخش ۳: اکوسیستم شرکت‌ها و پروژه‌های صافی (۶ پروژه)
+        ═══════════════════════════════════════════════════ */}
+        <section id="ventures" className="py-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 font-mono text-[11px] uppercase tracking-widest mb-3">
+                <FaCrown size={12} />
+                پورتفولیوی شرکتی و اکوسیستم صافی
+              </div>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase italic tracking-tight">
+                اکوسیستم تجاری <span className="text-luxury">صافی</span>
+              </h2>
+            </div>
+            <p className="text-zinc-400 font-light text-sm md:text-base max-w-md leading-relaxed md:text-left">
+              شش بازوی قدرتمند و تخصصی که برای حل چالش‌های نقدینگی، پرداخت‌های بین‌المللی، آزادی شبکه‌های اجتماعی، آموزش فناوری و تجارت الکترونیک طراحی شده‌اند.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ventures.map((venture, idx) => (
+              <div 
+                key={idx}
+                className={`relative overflow-hidden rounded-[2.5rem] glass-card border border-white/10 ${venture.border} p-7 md:p-8 flex flex-col justify-between group transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2`}
+              >
+                {/* هاله گرادینت هنگام هوور */}
+                <div className={`absolute inset-0 bg-gradient-to-bl ${venture.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+                <div className="relative z-10 space-y-5">
+                  
+                  {/* نوار بالا: لوگو و تگ پروژه */}
+                  <div className="flex items-center justify-between">
+                    <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60 shadow-lg group-hover:border-amber-400/40 transition-colors p-1">
+                      <Image 
+                        src={venture.image} 
+                        alt={venture.name} 
+                        fill 
+                        className="object-contain p-1 group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-300 font-semibold">
+                      {venture.badge}
+                    </span>
+                  </div>
+
+                  {/* عنوان و شعار */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-2xl md:text-3xl font-black text-white group-hover:text-amber-300 transition-colors">
+                      {venture.name}
+                    </h3>
+                    <p className="text-amber-400/90 font-mono text-xs uppercase tracking-wider font-semibold line-clamp-1">
+                      {venture.tagline}
+                    </p>
+                  </div>
+
+                  {/* توضیحات */}
+                  <p className="text-zinc-400 text-xs md:text-sm leading-relaxed font-light line-clamp-4">
+                    {venture.description}
+                  </p>
+
+                  {/* نکات کلیدی */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {venture.metrics.map((m, mIdx) => (
+                      <span 
+                        key={mIdx} 
+                        className="text-[10px] font-mono text-zinc-300 bg-white/5 border border-white/5 px-2.5 py-1 rounded-lg"
+                      >
+                        ✓ {m}
+                      </span>
+                    ))}
+                  </div>
+
+                </div>
+
+                {/* دکمه پایین کارت */}
+                <div className="relative z-10 pt-6 mt-5 border-t border-white/5 flex items-center justify-between">
+                  <Link 
+                    href={venture.link} 
+                    target="_blank"
+                    className="inline-flex items-center gap-2.5 text-xs md:text-sm font-bold uppercase tracking-wider text-white hover:text-amber-300 transition-colors group/btn"
+                  >
+                    <span>{venture.btnText}</span>
+                    <span className="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center group-hover/btn:bg-amber-400 group-hover/btn:text-black group-hover/btn:border-amber-400 transition-all duration-300">
+                      <FaArrowLeft size={10} className="rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                    </span>
+                  </Link>
+
+                  <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">
+                    سامانه مستقل
+                  </span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🛠️ بخش ۴: ارکان معماری و اصول فنی سیستم‌ها
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+              اصول راهبردی مهندسی
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tight">
+              ارکان معماری <span className="text-luxury">زیرساخت‌های ما</span>
+            </h2>
+            <p className="text-zinc-400 font-light text-sm md:text-base leading-relaxed">
+              تمامی سیستم‌های توسعه‌یافته تحت رهبری شاهین صافی با بالاترین استانداردهای امنیتی، پایداری فوق‌العاده و بیشترین میزان دسترسی طراحی می‌شوند.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {pillars.map((pillar, idx) => (
+              <div 
+                key={idx}
+                className="glass-card p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 space-y-4 hover:-translate-y-1.5 group"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
+                  {pillar.icon}
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                  {pillar.title}
+                </h3>
+                <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🌍 بخش ۵: قطب‌های بین‌المللی و مراکز فعالیت
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="glass-card border border-white/10 rounded-[2.5rem] p-7 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 space-y-4">
+                <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+                  حضور بین‌المللی
+                </span>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase italic tracking-tight">
+                  فعالیت در <br />
+                  <span className="text-luxury">۴ هاب استراتژیک</span>
+                </h3>
+                <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
+                  پیشبرد پروژه‌های فرامرزی نیازمند حضور همزمان در مراکز مالی، زنجیره‌های تأمین و بازارهای مبدأ است؛ از مدیریت سرمایه در لندن تا زنجیره تولید در استانبول و شمولیت مالی در کابل.
+                </p>
+              </div>
+
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {hubs.map((hub, idx) => (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-black/40 border border-white/10 hover:border-amber-400/30 transition-all duration-300 space-y-1.5 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl">{hub.flag}</span>
+                      <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">گره فعال</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                      {hub.city}، {hub.country}
+                    </h4>
+                    <p className="text-zinc-400 text-xs font-mono">
+                      {hub.role}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 🧊 Bento Grid Section - The "Janjalak" Digital Footprint */}
-        <section id="footprint" className="py-32 px-6 max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter">
-                ردپای <br/><span className="text-transparent bg-clip-text bg-gradient-to-l from-[#D4AF37] to-zinc-600">دیجیتال</span>
-            </h2>
-            <p className="text-zinc-500 font-mono text-sm tracking-widest max-w-xs md:text-left">
-              افکار، مقالات و اکوسیستمی که توسط صافی ساخته شده است را مرور کنید.
-            </p>
+        {/* ═══════════════════════════════════════════════════
+            📰 بخش ۶: مقالات و بینش‌های تخصصی
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+                تولید دانش و تحلیل‌های راهبردی
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tight">
+                اتاق مطالعه <span className="text-luxury">مدیریتی</span>
+              </h2>
+            </div>
+            <Link 
+              href="/fa/blog" 
+              className="inline-flex items-center gap-2 text-zinc-400 hover:text-amber-300 font-mono text-xs uppercase tracking-widest transition-colors"
+            >
+              <span>مشاهده تمام مقالات تخصصی</span>
+              <FaArrowLeft size={12} />
+            </Link>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[220px]">
-            
-            {/* Article Boxes */}
-            {mediumArticles.map((article, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {mediumArticles.map((article, idx) => (
               <Link 
-                key={index} 
+                key={idx} 
                 href={article.link} 
                 target="_blank"
-                className={`${article.size} ${article.bg} relative overflow-hidden backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-end hover:border-[#D4AF37]/50 transition-all duration-500 group shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-2`}
+                className="group relative overflow-hidden rounded-[2.5rem] glass-card border border-white/10 hover:border-amber-400/50 p-7 md:p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300">
+                      {article.tag}
+                    </span>
+                    <span className="text-zinc-500 text-xs font-mono">
+                      {article.readTime}
+                    </span>
+                  </div>
 
-                {article.thumb && (
-                  <div className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-700 scale-105 group-hover:scale-100">
-                     <Image src={article.thumb} alt="Preview" fill className="object-cover" />
-                     <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
-                  </div>
-                )}
-                
-                <div className="relative z-10 space-y-6 transform transition-transform duration-500 group-hover:-translate-x-2">
-                  <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-md border border-white/10 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-500">
-                    <FaMedium className="text-zinc-400 group-hover:text-black transition-colors duration-500" size={24} />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-black leading-tight text-zinc-200 group-hover:text-white transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
                     {article.title}
                   </h3>
+
+                  <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed line-clamp-3">
+                    {article.excerpt}
+                  </p>
                 </div>
-                
-                {/* Read more arrow */}
-                <div className="absolute top-10 left-10 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 bg-white/5 backdrop-blur-md">
-                  <svg className="w-4 h-4 text-[#D4AF37] rotate-[-135deg]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+
+                <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-zinc-400 text-xs font-mono">
+                    <FaMedium size={16} />
+                    <span>مطالعه در مدیوم</span>
+                  </div>
+                  <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-amber-400 group-hover:text-black transition-all">
+                    <FaArrowLeft size={12} className="rotate-45 group-hover:rotate-0 transition-transform" />
+                  </span>
                 </div>
               </Link>
             ))}
+          </div>
 
-            {/* Social Mix - Janjalak Style */}
-            {socialLinks.map((social, index) => (
+          {/* نقل قول محوری */}
+          <div className="mt-8 glass-card-gold rounded-[2.5rem] p-7 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 max-w-3xl">
+              <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+                اصل بنیادین فکری
+              </span>
+              <p className="text-xl sm:text-2xl md:text-3xl text-zinc-100 font-serif italic leading-snug">
+                «موانع سیستماتیک قوانین فیزیک نیستند؛ آن‌ها صرفاً <span className="text-luxury font-sans font-bold">کدهای ناکارآمد سیستم‌های سنتی‌اند</span> که منتظر معماری مصمم‌تر هستند.»
+              </p>
+              <p className="text-zinc-400 font-mono text-xs tracking-widest uppercase">
+                — شاهین صافی، بنیانگذار و مدیرعامل
+              </p>
+            </div>
+            <Link 
+              href="/fa/about" 
+              className="shrink-0 px-8 py-3.5 rounded-full bg-white/10 hover:bg-amber-400 hover:text-black border border-white/15 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300"
+            >
+              زندگی‌نامه کامل
+            </Link>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            📡 بخش ۷: کانال‌های ارتباطی و تماس مستقیم
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
+            <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+              شبکه ارتباطی
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tight">
+              ارتباط با <span className="text-luxury">شاهین صافی</span>
+            </h2>
+            <p className="text-zinc-400 text-xs md:text-sm font-light">
+              جهت پیگیری اطلاعیه‌ها، بررسی فرصت‌های سرمایه‌گذاری مشترک یا آغاز مشاوره‌های راهبردی.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+            {socialLinks.map((social, idx) => (
               <Link 
-                key={index} 
+                key={idx}
                 href={social.link} 
                 target="_blank"
-                className="col-span-1 row-span-1 bg-zinc-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center gap-5 hover:scale-[0.98] transition-all duration-500 hover:bg-zinc-800 hover:border-[#D4AF37]/30 group shadow-lg"
+                className="p-5 glass-card rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className={`p-4 rounded-full bg-white/5 border border-white/5 group-hover:border-[currentColor] ${social.color} transition-all duration-500 group-hover:shadow-[0_0_20px_currentColor]`}>
-                  <div className="transform group-hover:scale-110 transition-transform duration-500">
-                    {social.icon}
-                  </div>
+                <div className={`p-3 rounded-xl bg-white/5 group-hover:bg-amber-400/10 ${social.color} transition-colors`}>
+                  {social.icon}
                 </div>
-                <span className="text-[11px] font-mono tracking-widest text-zinc-500 group-hover:text-white transition-colors">
+                <span className="text-[11px] font-mono text-zinc-400 group-hover:text-white uppercase tracking-wider text-center">
                   {social.label}
                 </span>
               </Link>
             ))}
+          </div>
 
-            {/* Master Quote Box */}
-            <div className="col-span-1 md:col-span-2 row-span-1 border border-[#D4AF37]/20 rounded-[2.5rem] p-10 flex flex-col justify-center bg-gradient-to-bl from-[#D4AF37]/10 via-zinc-900/50 to-black relative overflow-hidden group shadow-[0_10px_30px_rgba(212,175,55,0.05)] backdrop-blur-xl">
-              <div className="absolute top-0 left-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 transform group-hover:scale-110 group-hover:-rotate-12 text-[#D4AF37]">
-                <FaMedium size={150} />
-              </div>
-              <svg className="w-8 h-8 text-[#D4AF37] mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-              <p className="italic text-zinc-300 text-right font-serif text-2xl md:text-3xl leading-snug relative z-10 group-hover:text-white transition-colors duration-500">
-                «موانع سیستماتیک صرفاً <span className="text-[#D4AF37]">کدهای ضعیفی</span> هستند که منتظر یک معمار بهترند.»
-              </p>
-            </div>
-
+          {/* خط VIP واتساپ */}
+          <div className="mt-10 text-center">
+            <Link 
+              href="https://wa.me/19342032497" 
+              target="_blank"
+              className="inline-flex items-center gap-3 px-8 py-4.5 rounded-full bg-gradient-to-r from-emerald-500/20 to-emerald-600/10 border border-emerald-400/40 hover:border-emerald-400 text-emerald-300 hover:text-white text-xs md:text-sm font-bold uppercase tracking-wider shadow-[0_0_35px_rgba(16,185,129,0.2)] hover:shadow-[0_0_50px_rgba(16,185,129,0.4)] transition-all duration-300"
+            >
+              <FaWhatsapp size={18} />
+              <span>خط مستقیم واتساپ جهت مکاتبات اداری و سرمایه‌گذاری</span>
+            </Link>
           </div>
         </section>
 
-        {/* 🎬 Footer */}
-        <footer className="py-12 mt-20 border-t border-white/5 relative">
-          <div className="absolute top-0 right-1/2 translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"></div>
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl font-black tracking-widest text-zinc-800 uppercase" dir="ltr">Safi Group</h3>
-            <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-[0.5em]" dir="ltr">
-              London <span className="text-[#D4AF37] mx-2">•</span> Kabul <span className="text-[#D4AF37] mx-2">•</span> Istanbul <span className="text-[#D4AF37] mx-2">•</span> Dubai <span className="text-[#D4AF37] mx-2">•</span> Global Hub
-            </p>
-            <p className="text-zinc-700 text-xs mt-8 font-mono" dir="ltr">
-              © {new Date().getFullYear()} Shaheen Safi. All Systems Operational.
-            </p>
-          </div>
-        </footer>
       </div>
-
-      {/* Embedded Styles for smooth floating animation */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-      `}} />
     </div>
   );
 }

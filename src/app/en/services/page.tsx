@@ -182,7 +182,7 @@ export default function ServicesPageEn() {
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32">
+      <div className="relative z-10 w-[98%] max-w-[1600px] mx-auto px-3 sm:px-6 pt-28">
         
         {/* Header Section */}
         <div className="text-center mb-24 space-y-6">

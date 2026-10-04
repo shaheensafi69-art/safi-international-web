@@ -1,135 +1,189 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaCrown, FaArrowLeft } from 'react-icons/fa6';
 
-export default function VenturesPage() {
+export default function VenturesPageFa() {
   const ventures = [
     {
       id: 1,
       name: 'SafiPay',
       logo: '/safipay.jpeg',
-      tagline: 'تحولی در بانکداری دیجیتال بین‌المللی',
-      description: 'SafiPay پروژه پرچم‌دار ما است که برای شکستن مرزهای مالی برای افغان‌ها و کاربران بین‌المللی طراحی شده است. ما یک اپلیکیشن پیشرفته برای افتتاح حساب‌های چند ارزی و صدور آنی کارت‌های ویزا فیزیکی و مجازی در اتحادیه اروپا ارائه می‌دهیم.',
+      tagline: 'انقلاب در بانکداری بین‌المللی دیجیتال و صدور کارت‌های ویزا',
+      description: 'سافی‌پی پروژه پرچمدار ما برای شکستن مرزهای مالی برای افغان‌ها و کاربران بین‌المللی است. ما بستری پیشرفته برای افتتاح حساب‌های چندارزی و صدور آنی کارت‌های ویزای فیزیکی و مجازی در حوزه اتحادیه اروپا فراهم کرده‌ایم.',
       features: [
-        'افتتاح حساب بین‌المللی با تمرکز ویژه بر افغانستان',
-        'پشتیبانی از ارزهای مختلف (دلار، یورو، پوند، زلوتی، کرون و غیره)',
-        'صدور آنی ویزا کارت با امنیت سطح بانکی',
+        'افتتاح حساب بین‌المللی چندارزی (دلار، یورو، پوند، زلوتی، کرون)',
+        'صدور آنی کارت ویزا با بالاترین استانداردهای امنیتی بانکی اروپا',
         'اتصال مستقیم به درگاه‌های جهانی مانند Stripe و PayPal',
-        'ارائه مشخصات حساب بانکی محلی برای تجارت بین‌الملل'
+        'ارائه مشخصات حساب بانکی محلی اروپایی جهت تجارت جهانی',
+        'فرایند ثبت‌نام ساده و سریع برای کارآفرینان و مهاجران'
       ],
       website: 'https://www.safipay.net',
-      color: 'from-amber-500/10 to-transparent'
+      color: 'from-amber-500/15 via-amber-500/5 to-transparent'
     },
     {
       id: 2,
       name: 'Safi TopUp',
       logo: '/safitopup.jpeg',
-      tagline: 'پل جهانی برای خدمات اعتباری دیجیتال',
-      description: 'Safi TopUp یکی از گسترده‌ترین پلتفرم‌های توزیع محصولات دیجیتال است. این سیستم با اتصال به بیش از ۷۰۰ اپراتور جهانی، به کاربران اجازه می‌دهد تا شارژ موبایل، بسته‌های اینترنتی و گیفت‌کارت‌های بین‌المللی را به صورت آنی در بیش از ۱۵۰ کشور ارسال کنند.',
+      tagline: 'پل ارتباطی جهانی برای خدمات کردیت و مخابرات دیجیتال',
+      description: 'سافی تاپ‌آپ یکی از گسترده‌ترین شبکه‌های توزیع محصولات دیجیتال است. متصل به بیش از ۷۰۰ اپراتور جهانی تلفن همراه، این پلتفرم امکان ارسال کردیت، بسته‌های اینترنت بین‌المللی eSIM و خرید گیفت‌کارت را در بیش از ۱۵۰ کشور فراهم می‌سازد.',
       features: [
-        'شارژ موبایل و اعتبار برای بیش از ۷۰۰ اپراتور جهانی',
-        'گیفت‌کارت‌های دیجیتال بازی (استیم، پلی‌استیشن، آیتونز و غیره)',
-        'ارائه بسته‌های داده بین‌المللی و خدمات eSIM',
-        'پرداخت قبوض خدماتی پیش‌پرداخت بین‌المللی',
-        'پشتیبانی ۲۴/۷ با تحویل دیجیتال آنی'
+        'ارسال کردیت و شارژ به بیش از ۷۰۰ اپراتور بین‌المللی',
+        'کارت‌های بازی دیجیتال (پلی‌استیشن، استیم، آیتونز، ایکس‌باکس)',
+        'بسته‌های اینترنت و سرویس‌های eSIM در بیش از ۱۵۰ کشور',
+        'پرداخت قبوض اشتراکی و مخابراتی بین‌المللی',
+        'پشتیبانی ۲۴ ساعته با تحویل آنی و خودکار دیجیتال'
       ],
       website: 'https://www.safitopup.site',
-      color: 'from-blue-500/5 to-transparent'
+      color: 'from-blue-500/15 via-blue-500/5 to-transparent'
     },
     {
       id: 3,
+      name: 'Safi International Capital LTD',
+      logo: '/saficapital.png',
+      tagline: 'سرمایه‌گذاری خطرپذیر بین‌المللی، مدیریت دارایی و گسترش فرامرزی در لندن',
+      description: 'با ثبت رسمی در لندن بریتانیا، شرکت کپیتال بین‌المللی صافی به عنوان بازوی نهادی سرمایه‌گذاری و مدیریت سرمایه گروه صافی فعالیت می‌کند. تمرکز این نهاد بر تخصیص هوشمندانه منابع مالی در فناوری‌های نوآورانه فین‌تک، کریدورهای نقدینگی و بازارهای نوظهور است.',
+      features: [
+        'ثبت رسمی در سازمان ثبت شرکت‌های بریتانیا (UK Companies House)',
+        'رعایت بالاترین استانداردهای حاکمیت شرکتی و انطباق مالی اروپا',
+        'مدیریت نقدینگی و سرمایه‌گذاری فرامرزی در پروژه‌های فین‌تک',
+        'پل ارتباطی استراتژیک میان لندن، دبی و بازارهای نوظهور منطقه',
+        'ایجاد زنجیره ارزش بلندمدت و توسعه فناوری‌های کلیدی'
+      ],
+      website: 'https://safiinternationalcapitalltd.site',
+      color: 'from-emerald-500/15 via-emerald-500/5 to-transparent'
+    },
+    {
+      id: 4,
+      name: 'ZEV App',
+      logo: '/zev.png',
+      tagline: 'شبکه اجتماعی غیرمتمرکز، آزادی بیان و اقتصاد سازندگان محتوا',
+      description: 'زِو (ZEV) شاهکار نرم‌افزاری ما در حوزه شبکه‌های اجتماعی برای بازگرداندن حاکمیت داده‌ها به کاربران است. پلتفرمی بدون سانسور متمرکز، همراه با ارتباطات رمزنگاری‌شده سرتاسری و سیستم‌های اختصاصی درآمدزایی برای سازندگان محتوا.',
+      features: [
+        'معماری مقاوم در برابر سانسور برای تضمین آزادی بیان اصیل',
+        'پیام‌رسانی، تماس صوتی و تبادل رسانه با رمزنگاری پیشرفته سرتاسری',
+        'درآمدزایی مستقیم سازندگان بدون کارمزدهای تحمیلی پلتفرم‌های سنتی',
+        'فید رسانه‌ای فوق‌العاده سریع با رابط کاربری بسیار مدرن',
+        'نسخه‌های اختصاصی تلفن همراه برای سیستم‌های عامل iOS و Android'
+      ],
+      website: 'https://www.zevapp.com',
+      color: 'from-cyan-500/15 via-cyan-500/5 to-transparent'
+    },
+    {
+      id: 5,
+      name: 'Safi Academy',
+      logo: '/safiacademy.png',
+      tagline: 'مرکز تخصصی آموزش فناوری‌های نوین، کدنویسی و توانمندسازی جوانان',
+      description: 'صافی اکادمی بنیاد آموزشی پیشتاز ما برای توانمندسازی جوانان و دانشجویان در بازارهای در حال ظهور و سراسر جهان است؛ با ارائه آموزش‌های استاندارد جهانی در برنامه‌نویسی، هوش مصنوعی، زبان انگلیسی و مهارت‌های تجارت دیجیتال.',
+      features: [
+        'سرفصل‌های جامع آموزش برنامه‌نویسی فول‌استک و هوش مصنوعی',
+        'پورتال تعاملی دانشجویی با راهنمایی و منتورینگ پروژه‌محور',
+        'ارائه گواهینامه‌های معتبر بین‌المللی و مسیرهای ورود به بازار کار',
+        'دسترسی رایگان و آسان برای جوانان مناطق محروم و مهاجران',
+        'شکستن بن‌بست‌های آموزشی سنتی با استفاده از کلاس‌های دیجیتال آنلاین'
+      ],
+      website: 'https://safiacademy.org',
+      color: 'from-amber-500/15 via-emerald-500/5 to-transparent'
+    },
+    {
+      id: 6,
       name: 'SafiPro',
       logo: '/safipro.jpeg',
-      tagline: 'تعالی در مد مدرن و سبک زندگی',
-      description: 'SafiPro برند تخصصی ما در حوزه پوشاک و سبک زندگی است. این برند با چشم‌اندازی برای کیفیت برتر بازسازی شده و بر طراحی‌های منحصر‌به‌فرد و مواد اولیه باکیفیت تمرکز دارد تا نیازهای مشتریان شیک‌پسند در بازار آنلاین جهانی را برآورده کند.',
+      tagline: 'تعالی در مد مدرن، سبک زندگی و تولید صنعتی پوشاک لوکس',
+      description: 'صافی‌پرو برند تخصصی پوشاک و سبک زندگی معاصر ماست. این برند با تکیه بر دیدگاهی زیبایی‌شناسانه، تلفیقی از برش‌های مدرن و پارچه‌های صنعتی باکیفیت را به مشتریان خوش‌پوش در سراسر جهان از طریق فروش مستقیم آنلاین عرضه می‌کند.',
       features: [
-        'طراحی‌های مدرن و انحصاری مطابق با ترندهای جهانی',
-        'مواد اولیه باکیفیت و دوخت صنعتی حرفه‌ای',
-        'فروش مستقیم به مصرف‌کننده از طریق وب‌سایت safipro.site',
-        'کنترل کیفیت دقیق در تمام مراحل تولید',
-        'طیف متنوع محصولات در دسته‌بندی‌های مختلف مد'
+        'طراحی‌های انحصاری همگام با جدیدترین ترندهای جهانی مد',
+        'استفاده از متریال مرغوب و دوخت حرفه‌ای صنعتی با دقت بالا',
+        'ارسال مستقیم بین‌المللی به خریداران از طریق safipro.site',
+        'کنترل کیفیت دقیق در تمامی مراحل الگو، تولید و بسته‌بندی',
+        'محصولات متنوع در رده‌های لباس روزمره لوکس، استریت‌ویر و اکسسوری'
       ],
-      website: 'https://www.safipro.site',
-      color: 'from-zinc-500/10 to-transparent'
+      website: 'https://safipro.site',
+      color: 'from-purple-500/15 via-purple-500/5 to-transparent'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white rtl pt-32 pb-24 px-6" dir="rtl">
+    <div className="min-h-screen bg-[#050507] text-white pt-28 pb-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto" dir="rtl">
       
-      {/* Page Header */}
-      <div className="max-w-7xl mx-auto text-center mb-24">
-        <h1 className="text-5xl md:text-7xl font-black text-luxury mb-8 tracking-tight">
-          پروژه‌های صافی
+      {/* هدر صفحه */}
+      <div className="text-center mb-16 space-y-4">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 font-mono text-xs uppercase tracking-widest">
+          <FaCrown size={12} />
+          <span>پورتفولیوی پروژه‌های شاهین صافی</span>
+        </div>
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-luxury tracking-tight uppercase italic">
+          پروژه‌ها و اکوسیستم صافی
         </h1>
-        <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
-          ایجاد اکوسیستمی که در آن تکنولوژی، امور مالی و تجارت تلاقی می‌کنند.
-          هر پروژه یک گام استراتژیک به سوی آینده‌ای بدون مرز است.
+        <p className="text-zinc-400 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-light">
+          طراحی و مهندسی اکوسیستمی به‌هم‌پیوسته که در آن فین‌تک، مخابرات، شبکه‌های اجتماعی، آموزش نوین و تجارت فرامرزی برای حذف موانع سنتی به یکدیگر می‌پیوندند.
         </p>
       </div>
 
-      {/* Ventures List */}
-      <div className="max-w-7xl mx-auto space-y-20">
+      {/* لیست پروژه‌ها */}
+      <div className="space-y-12">
         {ventures.map((venture) => (
           <div 
             key={venture.id}
-            className={`relative overflow-hidden rounded-[3rem] border border-zinc-900 bg-gradient-to-br ${venture.color} p-8 md:p-12 group hover:border-safi-gold/30 transition-all duration-700`}
+            className={`relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-bl ${venture.color} p-6 md:p-10 group hover:border-amber-400/40 transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)]`}
           >
-            <div className="flex flex-col lg:flex-row gap-12 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
               
-              {/* Logo Section */}
-              <div className="w-full lg:w-1/3 flex justify-center">
-                <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.05)] group-hover:shadow-[0_0_60px_rgba(212,175,55,0.15)] transition-all duration-700">
+              {/* بخش لوگو */}
+              <div className="w-full lg:w-1/4 flex justify-center shrink-0">
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-zinc-950 p-2 group-hover:border-amber-400/40 group-hover:scale-105 transition-all duration-500">
                   <Image 
                     src={venture.logo} 
                     alt={venture.name} 
                     fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-1000" 
+                    className="object-contain p-2" 
                   />
                 </div>
               </div>
 
-              {/* Content Section */}
-              <div className="w-full lg:w-2/3 space-y-6 text-right">
-                <div className="space-y-2">
-                  <h2 className="text-4xl md:text-5xl font-black text-luxury">{venture.name}</h2>
-                  <p className="text-safi-gold/80 text-lg font-mono tracking-widest uppercase">{venture.tagline}</p>
+              {/* بخش محتوا */}
+              <div className="w-full lg:w-3/4 space-y-5">
+                <div className="space-y-1">
+                  <h2 className="text-3xl md:text-4xl font-black text-white group-hover:text-amber-300 transition-colors">
+                    {venture.name}
+                  </h2>
+                  <p className="text-amber-400/90 text-xs md:text-sm font-mono tracking-wider uppercase font-semibold">
+                    {venture.tagline}
+                  </p>
                 </div>
 
-                <p className="text-gray-400 text-lg leading-relaxed text-justify">
+                <p className="text-zinc-300 text-sm md:text-base leading-relaxed font-light">
                   {venture.description}
                 </p>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-6">
-                  {venture.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-gray-500">
-                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-safi-gold shrink-0"></div>
-                      <span className="text-sm md:text-base group-hover:text-gray-300 transition-colors">{feature}</span>
+                {/* ویژگی‌ها */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                  {venture.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-2 text-xs md:text-sm text-zinc-400 font-light">
+                      <span className="text-amber-400 font-bold shrink-0">✓</span>
+                      <span>{feature}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* Action Button */}
-                <div className="pt-6">
+                {/* دکمه ورود */}
+                <div className="pt-4">
                   <Link 
                     href={venture.website} 
                     target="_blank"
-                    className="inline-block border border-safi-gold/50 text-safi-gold px-8 py-3 rounded-xl font-bold hover:bg-safi-gold hover:text-black transition-all duration-500"
+                    className="inline-flex items-center gap-3 px-7 py-3 rounded-full bg-white/10 hover:bg-amber-400 hover:text-black border border-white/15 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 group/btn"
                   >
-                    مشاهده وب‌سایت رسمی
+                    <span>مشاهده و ورود به {venture.name}</span>
+                    <FaArrowLeft size={12} className="rotate-45 group-hover/btn:rotate-0 transition-transform" />
                   </Link>
                 </div>
+
               </div>
+
             </div>
           </div>
         ))}
       </div>
 
-      {/* Footer Branding */}
-      <div className="mt-32 text-center border-t border-zinc-900 pt-16">
-        <p className="text-gray-600 uppercase tracking-[0.6em] text-xs mb-3">Safi International Capital LTD</p>
-        <p className="text-zinc-700 text-sm font-mono" dir="ltr">Registered in England • No. 17063286</p>
-      </div>
     </div>
   );
 }

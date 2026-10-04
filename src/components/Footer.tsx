@@ -16,11 +16,13 @@ export default function Footer({ lang }: FooterProps) {
   // بخش خدمات و پروژه‌ها
   const footerData = {
     services: {
-      title: isRtl ? "خدمات و پروژه‌ها" : "SERVICES & PROJECTS",
+      title: isRtl ? "پروژه‌ها و اکوسیستم" : "ECOSYSTEM & VENTURES",
       items: [
         { name: "SafiPay", link: "https://safipay.net" },
         { name: "Safi TopUp", link: "https://safitopup.site" },
         { name: "Safi International Capital", link: "https://safiinternationalcapitalltd.site" },
+        { name: "ZEV App", link: "https://www.zevapp.com" },
+        { name: "Safi Academy", link: "https://safiacademy.org" },
         { name: "SafiPro", link: "https://safipro.site" },
       ]
     },
@@ -28,9 +30,12 @@ export default function Footer({ lang }: FooterProps) {
       title: isRtl ? "دسترسی سریع" : "QUICK LINKS",
       items: [
         { name: isRtl ? "صفحه اصلی" : "Home", link: `/${lang}` },
-        { name: isRtl ? "وبلاگ" : "Blog", link: `/${lang}/blog` },
-        { name: isRtl ? "ویکتوریس" : "Victories", link: `/${lang}/victories` },
-        { name: isRtl ? "تماس" : "Contact", link: "#" },
+        { name: isRtl ? "درباره من" : "About", link: `/${lang}/about` },
+        { name: isRtl ? "اکوسیستم و خدمات" : "Ecosystem & Services", link: `/${lang}/services` },
+        { name: isRtl ? "پروژه‌ها و سرمایه‌گذاری" : "Ventures", link: `/${lang}/victories` },
+        { name: isRtl ? "رزومه کامل" : "Executive CV", link: `/${lang}/cv` },
+        { name: isRtl ? "وبلاگ تخصصی" : "Blog", link: `/${lang}/blog` },
+        { name: isRtl ? "تماس مستقیم" : "Direct Contact", link: "https://wa.me/19342032497" },
       ]
     }
   };
@@ -47,8 +52,8 @@ export default function Footer({ lang }: FooterProps) {
   ];
 
   return (
-    <footer className="w-full bg-black border-t border-zinc-900 pt-20 pb-10 px-6" dir={isRtl ? 'rtl' : 'ltr'}>
-      <div className="max-w-7xl mx-auto">
+    <footer className="w-full bg-black border-t border-zinc-900 pt-16 pb-10 px-3 md:px-6" dir={isRtl ? 'rtl' : 'ltr'}>
+      <div className="w-[98%] max-w-[1600px] mx-auto">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           

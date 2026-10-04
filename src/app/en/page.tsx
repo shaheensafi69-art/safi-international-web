@@ -2,242 +2,676 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaLinkedin, FaInstagram, FaTiktok, FaWhatsapp, FaFacebook, FaMedium } from 'react-icons/fa6';
+import { 
+  FaLinkedin, 
+  FaInstagram, 
+  FaTiktok, 
+  FaWhatsapp, 
+  FaFacebook, 
+  FaMedium, 
+  FaXTwitter, 
+  FaArrowRight, 
+  FaShieldHalved, 
+  FaGlobe, 
+  FaChartLine, 
+  FaBolt, 
+  FaBuildingColumns, 
+  FaCreditCard, 
+  FaNetworkWired, 
+  FaBriefcase, 
+  FaCrown,
+  FaGraduationCap,
+  FaComments
+} from 'react-icons/fa6';
 
 export default function HomePageEn() {
+  const ventures = [
+    {
+      name: "SafiPay",
+      badge: "Flagship FinTech",
+      tagline: "European Digital Banking & Instant Multi-Currency Visa Rails",
+      description: "SafiPay is our core financial infrastructure designed to dismantle systemic financial isolation. Engineering compliant European multi-currency IBANs (EUR, USD, GBP) and instant digital & physical Visa cards for emerging markets, diaspora, and global entrepreneurs.",
+      image: "/safipay.jpeg",
+      link: "https://safipay.net",
+      metrics: ["Multi-Currency IBANs", "Instant EU Visa Cards", "Stripe & PayPal Ready"],
+      accent: "from-amber-500/20 via-amber-500/5 to-transparent",
+      border: "hover:border-amber-400/50",
+      btnText: "Launch SafiPay",
+    },
+    {
+      name: "Safi TopUp",
+      badge: "Global Telecom Hub",
+      tagline: "Worldwide Digital Credit, eSIM & Telecommunication Bridge",
+      description: "A high-velocity distribution network directly integrated with over 700 global mobile telecom operators. Delivering airtime credit, high-speed international eSIM bundles, and digital vouchers across 150+ countries with sub-second execution.",
+      image: "/safitopup.jpeg",
+      link: "https://safitopup.site",
+      metrics: ["700+ Mobile Carriers", "150+ Countries Live", "Instant Digital Delivery"],
+      accent: "from-blue-500/20 via-blue-500/5 to-transparent",
+      border: "hover:border-blue-400/50",
+      btnText: "Explore Safi TopUp",
+    },
+    {
+      name: "Safi International Capital",
+      badge: "London Venture Capital",
+      tagline: "Cross-Border Wealth, Strategic Liquidity & Emerging Market Scaling",
+      description: "Incorporated in London, UK, Safi International Capital Ltd serves as the institutional venture and investment arm of the group. Deploying capital into frontier technology, payment innovations, and high-growth cross-border enterprises.",
+      image: "/saficapital.png",
+      link: "https://safiinternationalcapitalltd.site",
+      metrics: ["London Registered", "Institutional Governance", "Venture Syndication"],
+      accent: "from-emerald-500/20 via-emerald-500/5 to-transparent",
+      border: "hover:border-emerald-400/50",
+      btnText: "Capital Overview",
+    },
+    {
+      name: "ZEV App",
+      badge: "Decentralized Social Network",
+      tagline: "Next-Generation Sovereign Social Media & Community Monetization",
+      description: "ZEV is our breakthrough social networking platform built for digital sovereignty, authentic freedom of speech, encrypted communication, and integrated creator economies. Re-imagining how billions connect without centralized censorship.",
+      image: "/zev.png",
+      link: "https://www.zevapp.com",
+      metrics: ["Censorship-Resistant", "Creator Monetization", "Encrypted Messaging"],
+      accent: "from-cyan-500/20 via-cyan-500/5 to-transparent",
+      border: "hover:border-cyan-400/50",
+      btnText: "Discover ZEV",
+    },
+    {
+      name: "Safi Academy",
+      badge: "EdTech & Empowerment",
+      tagline: "Frontier Technology Education, Coding & Youth Empowerment",
+      description: "Safi Academy is our flagship educational foundation dedicated to equipping youth and emerging market talent with cutting-edge skills in software engineering, artificial intelligence, leadership, and digital literacy.",
+      image: "/safiacademy.png",
+      link: "https://safiacademy.org",
+      metrics: ["Coding & AI Curricula", "Youth Empowerment", "Global Certification"],
+      accent: "from-amber-500/20 via-emerald-500/5 to-transparent",
+      border: "hover:border-amber-400/50",
+      btnText: "Visit Safi Academy",
+    },
+    {
+      name: "SafiPro",
+      badge: "Luxury Lifestyle Brand",
+      tagline: "Contemporary Industrial Tailoring & Global D2C Commerce",
+      description: "SafiPro represents our high-end fashion and lifestyle division. Combining architectural minimalism with industrial textile precision to produce modern wardrobe staples distributed directly to an international audience.",
+      image: "/safipro.jpeg",
+      link: "https://safipro.site",
+      metrics: ["Proprietary Designs", "Global Express Shipping", "Premium Textiles"],
+      accent: "from-purple-500/20 via-purple-500/5 to-transparent",
+      border: "hover:border-purple-400/50",
+      btnText: "Visit SafiPro",
+    }
+  ];
+
+  const impactMetrics = [
+    { value: "$10M+", label: "Target Transaction Rails", detail: "High-capacity architecture engineered for volume" },
+    { value: "150+", label: "Global Markets Reached", detail: "Active cross-border telecommunication corridors" },
+    { value: "700+", label: "Global Mobile Carriers", detail: "Direct API integrations with global telecom networks" },
+    { value: "4 Hubs", label: "Strategic Metropolises", detail: "London • Dubai • Istanbul • Kabul" },
+    { value: "99.99%", label: "System Availability", detail: "Enterprise-grade uptime & zero-trust compliance" },
+  ];
+
+  const pillars = [
+    {
+      icon: <FaBuildingColumns className="text-amber-400" size={28} />,
+      title: "FinTech & Sovereign Banking",
+      desc: "Architecting decentralized-friendly and regulated banking rails that empower people historically locked out of the global banking system."
+    },
+    {
+      icon: <FaShieldHalved className="text-amber-400" size={28} />,
+      title: "Regulatory & Compliance Rigor",
+      desc: "Implementing automated KYC/AML verification protocols in harmony with European financial regulations and international banking standards."
+    },
+    {
+      icon: <FaNetworkWired className="text-amber-400" size={28} />,
+      title: "Zero-Latency Global Distribution",
+      desc: "Scalable telecommunication gateways processing hundreds of thousands of digital credit transactions in sub-seconds."
+    },
+    {
+      icon: <FaChartLine className="text-amber-400" size={28} />,
+      title: "Strategic Capital Syndication",
+      desc: "Directing venture capital and institutional liquidity into frontier technology opportunities across emerging economies."
+    }
+  ];
+
   const mediumArticles = [
     {
-      title: "The Infrastructure of Trust: How SafiPay is Redefining Banking",
+      title: "The Infrastructure of Trust: How SafiPay is Redefining Digital Banking",
+      excerpt: "Deep-dive into the architectural engineering behind SafiPay's multi-currency account creation, compliance security, and financial inclusion for emerging markets.",
       link: "https://medium.com/@omulbaninmoradi188/the-infrastructure-of-trust-how-safipay-is-redefining-digital-banking-security-in-emerging-markets-439b14641ad5",
-      size: "md:col-span-2 md:row-span-2",
-      bg: "bg-gradient-to-br from-zinc-900/90 to-black",
-      thumb: "/hero.jpg" // می‌توانید اسکرین‌شات مقاله را بگذارید
+      tag: "FinTech Architecture",
+      readTime: "6 min read",
+      thumb: "/hero.jpg"
     },
     {
-      title: "Introduction to Shaheen Safi",
-      link: "https://medium.com/@omulbaninmoradi188/introduction-10633ed36932",
-      size: "md:col-span-1 md:row-span-1",
-      bg: "bg-gradient-to-br from-[#D4AF37]/10 to-transparent",
-      thumb: null
-    },
-    {
-      title: "Regulatory Excellence in Digital Finance",
+      title: "Regulatory Excellence in Digital Finance: A Case Study of European Operations",
+      excerpt: "How adherence to stringent EU financial guidelines elevates SafiPay above conventional fintech platforms.",
       link: "https://medium.com/@jsana9033/regulatory-excellence-in-digital-finance-a-case-study-of-safipays-european-operations-5f9a6a1845ad",
-      size: "md:col-span-1 md:row-span-2",
-      bg: "bg-gradient-to-bl from-zinc-800/80 to-zinc-950",
-      thumb: null
+      tag: "Global Compliance",
+      readTime: "5 min read",
+      thumb: "/safipay.jpeg"
+    },
+    {
+      title: "The Vision of an Entrepreneur: Who is Shaheen Safi?",
+      excerpt: "The relentless pursuit of financial liberty—from self-taught coding prodigy to founder of multinational enterprises.",
+      link: "https://medium.com/@safipro011/the-vision-of-an-entrepreneur-who-is-shaheen-safi-7a2229cb4fbd",
+      tag: "Leadership & Vision",
+      readTime: "8 min read",
+      thumb: "/shaheen1.jpeg"
     }
   ];
 
   const socialLinks = [
-    { icon: <FaLinkedin size={28} />, link: "https://www.linkedin.com/in/shaheen-safi-b73a30299", color: "text-blue-400", label: "Professional" },
-    { icon: <FaInstagram size={28} />, link: "https://www.instagram.com/top_g_official1", color: "text-pink-500", label: "Lifestyle" },
-    { icon: <FaTiktok size={28} />, link: "https://www.tiktok.com/@safi_sahib6", color: "text-white", label: "Inside" },
-    { icon: <FaWhatsapp size={28} />, link: "https://wa.me/19342032497", color: "text-emerald-400", label: "Direct" },
-    { icon: <FaFacebook size={28} />, link: "https://www.facebook.com/share/18h8Drdg6z/", color: "text-blue-600", label: "Connect" }
+    { icon: <FaLinkedin size={22} />, link: "https://www.linkedin.com/in/shaheen-safi-b73a30299", color: "text-blue-400", label: "LinkedIn" },
+    { icon: <FaXTwitter size={22} />, link: "https://x.com/shaheensafi011", color: "text-zinc-200", label: "X (Twitter)" },
+    { icon: <FaInstagram size={22} />, link: "https://www.instagram.com/top_g_official1", color: "text-pink-400", label: "Instagram" },
+    { icon: <FaTiktok size={22} />, link: "https://www.tiktok.com/@safi_sahib6", color: "text-zinc-100", label: "TikTok" },
+    { icon: <FaWhatsapp size={22} />, link: "https://wa.me/19342032497", color: "text-emerald-400", label: "WhatsApp VIP" },
+    { icon: <FaFacebook size={22} />, link: "https://www.facebook.com/share/18h8Drdg6z/", color: "text-blue-500", label: "Facebook" },
+    { icon: <FaMedium size={22} />, link: "https://medium.com/@shaheensafi09", color: "text-amber-400", label: "Medium Articles" },
+  ];
+
+  const hubs = [
+    { city: "London", country: "United Kingdom", role: "Venture Capital & Corporate HQ", flag: "🇬🇧" },
+    { city: "Dubai", country: "United Arab Emirates", role: "Fintech Innovation & Trade Bridge", flag: "🇦🇪" },
+    { city: "Istanbul", country: "Turkey", role: "Supply Chain & Commerce Operations", flag: "🇹🇷" },
+    { city: "Kabul", country: "Afghanistan", role: "Financial Inclusion Epicenter", flag: "🇦🇫" },
   ];
 
   return (
-    <div className="min-h-screen bg-[#030303] text-white font-sans selection:bg-[#D4AF37]/30 selection:text-white overflow-x-hidden relative" dir="ltr">
+    <div className="min-h-screen bg-[#050507] text-white selection:bg-amber-400/30 selection:text-white relative overflow-hidden" dir="ltr">
       
-      {/* 🌌 Cinematic Animated Background */}
+      {/* 🌌 Atmospheric Ambient Background Lighting */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[50rem] h-[50rem] bg-[#D4AF37] opacity-[0.04] rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] w-[40rem] h-[40rem] bg-zinc-500 opacity-[0.03] rounded-full blur-[150px] animate-[pulse_12s_ease-in-out_infinite_reverse]"></div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        <div className="absolute top-[-15%] left-[-10%] w-[55rem] h-[55rem] bg-amber-500/10 rounded-full blur-[140px] animate-pulse-subtle"></div>
+        <div className="absolute top-[40%] right-[-15%] w-[45rem] h-[45rem] bg-zinc-600/10 rounded-full blur-[160px] animate-pulse-subtle"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[50rem] h-[50rem] bg-amber-600/5 rounded-full blur-[150px]"></div>
+        <div className="absolute inset-0 bg-grid-mesh opacity-25"></div>
       </div>
 
       <div className="relative z-10">
-        {/* 👑 Hero Section - The "Top G" Introduction */}
-        <section className="min-h-screen flex items-center pt-20 pb-20 px-6 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
+
+        {/* ═══════════════════════════════════════════════════
+            👑 SECTION 1: EXECUTIVE HERO COMMAND
+        ═══════════════════════════════════════════════════ */}
+        <section className="min-h-screen flex items-center pt-24 pb-14 md:pt-32 md:pb-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-10 relative">
+            {/* Left Column: Hero Text & Philosophy */}
+            <div className="lg:col-span-7 space-y-7">
               
-              {/* Floating Badge */}
-              <div className="inline-flex items-center gap-3 px-5 py-2 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/5 backdrop-blur-md shadow-[0_0_30px_rgba(212,175,55,0.15)] animate-[float_4s_ease-in-out_infinite]">
-                <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-ping"></span>
-                <span className="text-[#D4AF37] font-mono text-xs uppercase tracking-[0.4em] font-bold">The Digital Architect</span>
+              {/* Live Status Badge */}
+              <div className="inline-flex items-center gap-3 px-4 py-2 border border-amber-400/30 rounded-full bg-amber-400/5 backdrop-blur-xl shadow-[0_0_25px_rgba(212,175,55,0.15)]">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span className="text-amber-300 font-mono text-xs uppercase tracking-[0.25em] font-bold">
+                  Fintech Architect • Venture Founder
+                </span>
               </div>
               
-              {/* Massive 3D Typography */}
-              <div className="relative">
-                <h1 className="text-[5rem] sm:text-[7rem] md:text-[9rem] font-black italic tracking-tighter leading-[0.85] uppercase">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-300 to-zinc-600 block drop-shadow-2xl hover:translate-x-2 transition-transform duration-500">
+              {/* Massive Dual-Tone Headline */}
+              <div className="space-y-1">
+                <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black italic tracking-tighter leading-[0.9] uppercase">
+                  <span className="text-silver block drop-shadow-2xl">
                     SHAHEEN
                   </span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#D4AF37] via-[#a88721] to-[#5c490f] block drop-shadow-[0_10px_20px_rgba(212,175,55,0.2)] hover:translate-x-4 transition-transform duration-500">
+                  <span className="text-luxury block drop-shadow-[0_10px_30px_rgba(212,175,55,0.3)]">
                     SAFI
                   </span>
                 </h1>
-              </div>
-
-              <div className="space-y-8 max-w-2xl relative">
-                <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-[#D4AF37] to-transparent opacity-50 rounded-full"></div>
-                <p className="text-3xl text-white font-light leading-snug tracking-wide">
-                  "I don't wait for the future; <br/> <span className="font-bold text-[#D4AF37] italic">I compile it.</span>"
-                </p>
-                <p className="text-lg text-zinc-400 font-light leading-relaxed">
-                  From exploring the hidden layers of the Dark Web at age 6 to establishing <span className="text-white font-medium border-b border-[#D4AF37]/50 pb-0.5">Safi International Capital</span> in London. Shaheen Safi is a force of nature in the Fintech world—a visionary who turned systemic exclusion into a blueprint for global inclusion. 
-                </p>
-                <p className="text-zinc-500 font-mono text-sm uppercase tracking-widest border border-zinc-800/50 inline-block px-4 py-2 rounded-lg bg-zinc-900/30">
-                  Entrepreneur • Strategist • SafiPay Architect
+                <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-[0.3em] uppercase pt-2">
+                  Building Borderless Financial Freedom
                 </p>
               </div>
 
-              {/* 🌟 THE CV BUTTON 🌟 */}
-              <div className="pt-4 flex flex-wrap gap-6 items-center">
+              {/* Vision Quote & Executive Statement */}
+              <div className="space-y-4 max-w-2xl border-l-2 border-amber-400/40 pl-6 py-1">
+                <blockquote className="text-2xl md:text-3xl text-zinc-100 font-light leading-snug tracking-wide">
+                  "I don't wait for the future; <br />
+                  <span className="font-extrabold text-luxury italic">I compile it.</span>"
+                </blockquote>
+                <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-light">
+                  From writing low-level code at age 6 to establishing <span className="text-white font-medium">Safi International Capital</span> in London. Shaheen Safi is a pioneer in cross-border fintech and decentralized networks—engineering <span className="text-amber-300 font-medium">SafiPay</span>, <span className="text-amber-300 font-medium">Safi TopUp</span>, <span className="text-amber-300 font-medium">ZEV App</span>, <span className="text-amber-300 font-medium">Safi Academy</span>, and <span className="text-amber-300 font-medium">SafiPro</span> to dismantle systemic isolation and deliver sovereign economic tools worldwide.
+                </p>
+              </div>
+
+              {/* Quick Trust Capabilities Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl pt-1">
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">EU Banking</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">Visa Card Rails</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">700+ Carriers</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">Global Telecom</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">ZEV Network</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">Social App</p>
+                </div>
+                <div className="p-3 rounded-2xl glass-card border border-white/5">
+                  <p className="text-amber-400 font-bold text-sm">Safi Academy</p>
+                  <p className="text-zinc-500 text-[11px] font-mono">Tech Education</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap gap-4 items-center">
                 <Link 
-                  href="/en/cv" 
-                  className="group relative inline-flex items-center justify-center gap-4 px-10 py-5 bg-gradient-to-r from-[#D4AF37] to-[#aa8822] text-black font-black uppercase tracking-[0.2em] rounded-full overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:shadow-[0_0_60px_rgba(212,175,55,0.6)] hover:scale-[1.02] transition-all duration-500"
+                  href="#ventures" 
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-black font-black uppercase text-xs md:text-sm tracking-[0.2em] rounded-full overflow-hidden shadow-[0_0_35px_rgba(212,175,55,0.4)] hover:shadow-[0_0_55px_rgba(212,175,55,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
-                  <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-                  <span className="relative z-10 flex items-center gap-3">
-                    Explore My CV
-                    <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Ecosystem
+                    <FaArrowRight className="group-hover:translate-x-1.5 transition-transform duration-300" />
                   </span>
                 </Link>
-                
-                <Link href="#footprint" className="group flex items-center gap-3 text-zinc-400 hover:text-white font-mono text-sm tracking-widest uppercase transition-colors">
-                  <span className="w-12 h-px bg-zinc-700 group-hover:bg-[#D4AF37] transition-colors"></span>
-                  View Footprint
+
+                <Link 
+                  href="/en/cv" 
+                  className="inline-flex items-center gap-2 px-8 py-4 glass-card border border-white/15 hover:border-amber-400/50 text-white font-bold uppercase text-xs md:text-sm tracking-[0.2em] rounded-full hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg"
+                >
+                  Executive CV
+                </Link>
+
+                <Link 
+                  href="https://wa.me/19342032497" 
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-6 py-4 text-emerald-400 hover:text-emerald-300 font-mono text-xs uppercase tracking-widest transition-colors"
+                >
+                  <FaWhatsapp size={16} />
+                  <span>VIP Line</span>
                 </Link>
               </div>
 
             </div>
 
-            {/* Right Content - Hero Image */}
-            <div className="lg:col-span-5 relative perspective-1000">
-              <div className="absolute -inset-10 bg-gradient-to-tr from-[#D4AF37]/20 to-transparent blur-[100px] rounded-full mix-blend-screen" />
+            {/* Right Column: 3D Luxury Glass Hero Portrait */}
+            <div className="lg:col-span-5 relative">
               
-              {/* Glass Frame around Image */}
-              <div className="relative aspect-[4/5] rounded-[2.5rem] p-3 bg-zinc-900/40 backdrop-blur-2xl border border-white/10 shadow-2xl transform transition-transform duration-700 hover:rotate-y-[-5deg] hover:rotate-x-[5deg]">
-                <div className="relative w-full h-full rounded-[2rem] overflow-hidden group">
+              {/* Backlight Glow Sphere */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-amber-500/25 via-amber-400/10 to-transparent blur-[80px] rounded-full mix-blend-screen pointer-events-none" />
+              
+              {/* Luxury Glass Frame */}
+              <div className="relative aspect-[4/5] rounded-[2.5rem] p-3 bg-gradient-to-b from-white/10 to-white/0 backdrop-blur-2xl border border-white/15 shadow-[0_25px_60px_rgba(0,0,0,0.8)] group transition-all duration-500 hover:border-amber-400/40">
+                <div className="relative w-full h-full rounded-[2rem] overflow-hidden">
                   <Image 
                     src="/shaheen4.jpeg" 
-                    alt="Shaheen Safi CEO" 
+                    alt="Shaheen Safi - Founder & CEO" 
                     fill 
-                    className="object-cover transition-all duration-[2s] group-hover:scale-110 grayscale-[50%] group-hover:grayscale-0"
+                    className="object-cover transition-all duration-700 group-hover:scale-105 filter grayscale-[25%] group-hover:grayscale-0"
                     priority
                   />
-                  {/* Overlay Gradient for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
                   
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                      <p className="text-white font-mono text-xs tracking-widest uppercase mb-1">Status</p>
-                      <p className="text-[#D4AF37] font-bold">Building the Future of Finance</p>
-                    </div>
+                  {/* Subtle Gradient Veil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  
+                  {/* Floating Chip: London HQ */}
+                  <div className="absolute top-5 right-5 backdrop-blur-md bg-black/60 border border-white/15 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="text-sm">🇬🇧</span>
+                    <span className="text-zinc-300 font-mono text-[10px] tracking-wider uppercase font-semibold">HQ: London, UK</span>
                   </div>
+
+                  {/* Floating Chip: Live Financial Rails */}
+                  <div className="absolute top-5 left-5 backdrop-blur-md bg-black/60 border border-amber-400/30 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span className="text-amber-300 font-mono text-[10px] tracking-wider uppercase font-bold">SafiPay: Active</span>
+                  </div>
+
+                  {/* Bottom Information Glass Card */}
+                  <div className="absolute bottom-6 left-6 right-6 backdrop-blur-xl bg-black/70 border border-white/15 p-5 rounded-2xl space-y-2 shadow-2xl transform transition-transform duration-300 group-hover:-translate-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-luxury font-black text-sm uppercase tracking-wider">Shaheen Safi</span>
+                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
+                        Verified Executive
+                      </span>
+                    </div>
+                    <p className="text-zinc-300 text-xs font-light leading-relaxed">
+                      Leading multi-market expansion across fintech, capital investments, social tech, and education.
+                    </p>
+                  </div>
+
                 </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            📊 SECTION 2: GLOBAL IMPACT METRIC COUNTERS
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-8 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-5">
+            {impactMetrics.map((metric, idx) => (
+              <div 
+                key={idx} 
+                className="glass-card-gold p-5 md:p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 group"
+              >
+                <div>
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-black text-luxury tracking-tight group-hover:scale-105 transition-transform duration-300">
+                    {metric.value}
+                  </p>
+                  <p className="text-white font-bold text-xs uppercase tracking-wider mt-2">
+                    {metric.label}
+                  </p>
+                </div>
+                <p className="text-zinc-500 text-[11px] font-mono mt-3 leading-normal">
+                  {metric.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🏛️ SECTION 3: THE SAFI ECOSYSTEM & VENTURES (6 VENTURES)
+        ═══════════════════════════════════════════════════ */}
+        <section id="ventures" className="py-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300 font-mono text-[11px] uppercase tracking-widest mb-3">
+                <FaCrown size={12} />
+                Corporate Portfolio & Ecosystem
+              </div>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase italic tracking-tight">
+                The Safi <span className="text-luxury">Ecosystem</span>
+              </h2>
+            </div>
+            <p className="text-zinc-400 font-light text-sm md:text-base max-w-md leading-relaxed md:text-right">
+              Six specialized powerhouses engineered to solve cross-border liquidity, payments, social media freedom, tech education, and international commerce.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ventures.map((venture, idx) => (
+              <div 
+                key={idx}
+                className={`relative overflow-hidden rounded-[2.5rem] glass-card border border-white/10 ${venture.border} p-7 md:p-8 flex flex-col justify-between group transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2`}
+              >
+                {/* Accent glow on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${venture.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+                <div className="relative z-10 space-y-5">
+                  
+                  {/* Top Bar: Logo & Badge */}
+                  <div className="flex items-center justify-between">
+                    <div className="relative w-16 h-16 md:w-18 md:h-18 rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60 shadow-lg group-hover:border-amber-400/40 transition-colors p-1">
+                      <Image 
+                        src={venture.image} 
+                        alt={venture.name} 
+                        fill 
+                        className="object-contain p-1 group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-white/5 border border-white/10 text-amber-300 font-semibold">
+                      {venture.badge}
+                    </span>
+                  </div>
+
+                  {/* Header Title & Tagline */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-2xl md:text-3xl font-black text-white group-hover:text-amber-300 transition-colors">
+                      {venture.name}
+                    </h3>
+                    <p className="text-amber-400/90 font-mono text-xs uppercase tracking-wider font-semibold line-clamp-1">
+                      {venture.tagline}
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-zinc-400 text-xs md:text-sm leading-relaxed font-light line-clamp-4">
+                    {venture.description}
+                  </p>
+
+                  {/* Metric Chips */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {venture.metrics.map((m, mIdx) => (
+                      <span 
+                        key={mIdx} 
+                        className="text-[10px] font-mono text-zinc-300 bg-white/5 border border-white/5 px-2.5 py-1 rounded-lg"
+                      >
+                        ✓ {m}
+                      </span>
+                    ))}
+                  </div>
+
+                </div>
+
+                {/* Bottom Launch Button */}
+                <div className="relative z-10 pt-6 mt-5 border-t border-white/5 flex items-center justify-between">
+                  <Link 
+                    href={venture.link} 
+                    target="_blank"
+                    className="inline-flex items-center gap-2.5 text-xs md:text-sm font-bold uppercase tracking-[0.15em] text-white hover:text-amber-300 transition-colors group/btn"
+                  >
+                    <span>{venture.btnText}</span>
+                    <span className="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center group-hover/btn:bg-amber-400 group-hover/btn:text-black group-hover/btn:border-amber-400 transition-all duration-300">
+                      <FaArrowRight size={10} className="-rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                    </span>
+                  </Link>
+
+                  <span className="text-zinc-600 text-[10px] font-mono uppercase tracking-widest">
+                    External System
+                  </span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🛠️ SECTION 4: STRATEGIC ARCHITECTURAL PILLARS
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <span className="text-amber-400 font-mono text-xs uppercase tracking-[0.3em] font-bold">
+              Engineering Principles
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tight">
+              Strategic <span className="text-luxury">Architectural Pillars</span>
+            </h2>
+            <p className="text-zinc-400 font-light text-sm md:text-base leading-relaxed">
+              Every system built under the Safi banner is guided by institutional-grade security, extreme performance, and financial accessibility.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {pillars.map((pillar, idx) => (
+              <div 
+                key={idx}
+                className="glass-card p-7 rounded-3xl border border-white/10 hover:border-amber-400/40 transition-all duration-300 space-y-4 hover:-translate-y-1.5 group"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
+                  {pillar.icon}
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-amber-300 transition-colors">
+                  {pillar.title}
+                </h3>
+                <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            🌍 SECTION 5: GLOBAL HUBS & FOOTPRINT
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="glass-card border border-white/10 rounded-[2.5rem] p-7 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 space-y-4">
+                <span className="text-amber-400 font-mono text-xs uppercase tracking-[0.3em] font-bold">
+                  International Presence
+                </span>
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase italic tracking-tight">
+                  Operating Across <br />
+                  <span className="text-luxury">4 Strategic Hubs</span>
+                </h3>
+                <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed">
+                  Cross-border execution requires a multi-jurisdiction presence. From European capital governance in London to commercial supply chains in Istanbul and financial inclusion on the ground in Kabul.
+                </p>
+              </div>
+
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {hubs.map((hub, idx) => (
+                  <div 
+                    key={idx}
+                    className="p-5 rounded-2xl bg-black/40 border border-white/10 hover:border-amber-400/30 transition-all duration-300 space-y-1.5 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl">{hub.flag}</span>
+                      <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Active Node</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
+                      {hub.city}, {hub.country}
+                    </h4>
+                    <p className="text-zinc-400 text-xs font-mono">
+                      {hub.role}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 🧊 Bento Grid Section - The "Janjalak" Digital Footprint */}
-        <section id="footprint" className="py-32 px-6 max-w-7xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <h2 className="text-5xl md:text-6xl font-black uppercase italic tracking-tighter">
-                Digital <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-zinc-600">Footprint</span>
-            </h2>
-            <p className="text-zinc-500 font-mono text-sm uppercase tracking-widest max-w-xs md:text-right">
-              Explore the thoughts, articles, and ecosystem built by Safi.
-            </p>
+        {/* ═══════════════════════════════════════════════════
+            📰 SECTION 6: EXECUTIVE ESSAYS & BENTO ROOM
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-20 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+            <div>
+              <span className="text-amber-400 font-mono text-xs uppercase tracking-[0.3em] font-bold">
+                Thought Leadership
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tight">
+                Executive <span className="text-luxury">Reading Room</span>
+              </h2>
+            </div>
+            <Link 
+              href="/en/blog" 
+              className="inline-flex items-center gap-2 text-zinc-400 hover:text-amber-300 font-mono text-xs uppercase tracking-widest transition-colors"
+            >
+              <span>View All 15+ Publications</span>
+              <FaArrowRight size={12} />
+            </Link>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[220px]">
-            
-            {/* Article Boxes */}
-            {mediumArticles.map((article, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {mediumArticles.map((article, idx) => (
               <Link 
-                key={index} 
+                key={idx} 
                 href={article.link} 
                 target="_blank"
-                className={`${article.size} ${article.bg} relative overflow-hidden backdrop-blur-xl border border-white/5 rounded-[2.5rem] p-10 flex flex-col justify-end hover:border-[#D4AF37]/50 transition-all duration-500 group shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:-translate-y-2`}
+                className="group relative overflow-hidden rounded-[2.5rem] glass-card border border-white/10 hover:border-amber-400/50 p-7 md:p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-300">
+                      {article.tag}
+                    </span>
+                    <span className="text-zinc-500 text-xs font-mono">
+                      {article.readTime}
+                    </span>
+                  </div>
 
-                {article.thumb && (
-                  <div className="absolute inset-0 opacity-30 group-hover:opacity-50 transition-opacity duration-700 scale-105 group-hover:scale-100">
-                     <Image src={article.thumb} alt="Preview" fill className="object-cover" />
-                     <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"></div>
-                  </div>
-                )}
-                
-                <div className="relative z-10 space-y-6 transform transition-transform duration-500 group-hover:translate-x-2">
-                  <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-md border border-white/10 group-hover:bg-[#D4AF37] group-hover:border-[#D4AF37] transition-all duration-500">
-                    <FaMedium className="text-zinc-400 group-hover:text-black transition-colors duration-500" size={24} />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-black leading-tight text-zinc-200 group-hover:text-white transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
                     {article.title}
                   </h3>
+
+                  <p className="text-zinc-400 text-xs md:text-sm font-light leading-relaxed line-clamp-3">
+                    {article.excerpt}
+                  </p>
                 </div>
-                
-                {/* Read more arrow */}
-                <div className="absolute top-10 right-10 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 bg-white/5 backdrop-blur-md">
-                  <svg className="w-4 h-4 text-[#D4AF37] -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+
+                <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-zinc-400 text-xs font-mono">
+                    <FaMedium size={16} />
+                    <span>Read on Medium</span>
+                  </div>
+                  <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 group-hover:bg-amber-400 group-hover:text-black transition-all">
+                    <FaArrowRight size={12} className="-rotate-45 group-hover:rotate-0 transition-transform" />
+                  </span>
                 </div>
               </Link>
             ))}
+          </div>
 
-            {/* Social Mix - Janjalak Style */}
-            {socialLinks.map((social, index) => (
+          {/* Master Vision Quote Card */}
+          <div className="mt-8 glass-card-gold rounded-[2.5rem] p-7 md:p-10 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 max-w-3xl">
+              <span className="text-amber-400 font-mono text-xs uppercase tracking-widest font-bold">
+                The Core Axiom
+              </span>
+              <p className="text-xl sm:text-2xl md:text-3xl text-zinc-100 font-serif italic leading-snug">
+                "Systemic barriers are simply <span className="text-luxury font-sans font-bold">poorly written legacy systems</span> waiting for a more determined architect."
+              </p>
+              <p className="text-zinc-400 font-mono text-xs tracking-widest uppercase">
+                — Shaheen Safi, Founder & Managing Director
+              </p>
+            </div>
+            <Link 
+              href="/en/about" 
+              className="shrink-0 px-8 py-3.5 rounded-full bg-white/10 hover:bg-amber-400 hover:text-black border border-white/15 text-white font-bold text-xs uppercase tracking-widest transition-all duration-300"
+            >
+              Full Biography
+            </Link>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            📡 SECTION 7: SOCIAL CHANNELS & VIP INVITATION
+        ═══════════════════════════════════════════════════ */}
+        <section className="py-16 px-3 sm:px-6 w-[98%] max-w-[1600px] mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
+            <span className="text-amber-400 font-mono text-xs uppercase tracking-[0.3em] font-bold">
+              Direct Channels
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tight">
+              Connect with <span className="text-luxury">Shaheen Safi</span>
+            </h2>
+            <p className="text-zinc-400 text-xs md:text-sm font-light">
+              Follow official announcements, connect for strategic partnerships, or initiate private executive advisory.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+            {socialLinks.map((social, idx) => (
               <Link 
-                key={index} 
+                key={idx}
                 href={social.link} 
                 target="_blank"
-                className="col-span-1 row-span-1 bg-zinc-900/40 backdrop-blur-2xl border border-white/5 rounded-[2.5rem] flex flex-col items-center justify-center gap-5 hover:scale-[0.98] transition-all duration-500 hover:bg-zinc-800 hover:border-[#D4AF37]/30 group shadow-lg"
+                className="p-5 glass-card rounded-2xl flex flex-col items-center justify-center gap-3 hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 group"
               >
-                <div className={`p-4 rounded-full bg-white/5 border border-white/5 group-hover:border-[currentColor] ${social.color} transition-all duration-500 group-hover:shadow-[0_0_20px_currentColor]`}>
-                  <div className="transform group-hover:scale-110 transition-transform duration-500">
-                    {social.icon}
-                  </div>
+                <div className={`p-3 rounded-xl bg-white/5 group-hover:bg-amber-400/10 ${social.color} transition-colors`}>
+                  {social.icon}
                 </div>
-                <span className="text-[11px] font-mono uppercase tracking-[0.4em] text-zinc-500 group-hover:text-white transition-colors">
+                <span className="text-[11px] font-mono text-zinc-400 group-hover:text-white uppercase tracking-wider text-center">
                   {social.label}
                 </span>
               </Link>
             ))}
+          </div>
 
-            {/* Master Quote Box */}
-            <div className="col-span-1 md:col-span-2 row-span-1 border border-[#D4AF37]/20 rounded-[2.5rem] p-10 flex flex-col justify-center bg-gradient-to-br from-[#D4AF37]/10 via-zinc-900/50 to-black relative overflow-hidden group shadow-[0_10px_30px_rgba(212,175,55,0.05)] backdrop-blur-xl">
-              <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-10 transition-opacity duration-700 transform group-hover:scale-110 group-hover:rotate-12 text-[#D4AF37]">
-                <FaMedium size={150} />
-              </div>
-              <svg className="w-8 h-8 text-[#D4AF37] mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-              <p className="italic text-zinc-300 text-left font-serif text-2xl md:text-3xl leading-snug relative z-10 group-hover:text-white transition-colors duration-500">
-                "Systemic barriers are just <span className="text-[#D4AF37]">poorly written code</span> waiting for a better architect."
-              </p>
-            </div>
-
+          {/* Private VIP Line CTA */}
+          <div className="mt-10 text-center">
+            <Link 
+              href="https://wa.me/19342032497" 
+              target="_blank"
+              className="inline-flex items-center gap-3 px-8 py-4.5 rounded-full bg-gradient-to-r from-emerald-500/20 to-emerald-600/10 border border-emerald-400/40 hover:border-emerald-400 text-emerald-300 hover:text-white text-xs md:text-sm font-bold uppercase tracking-[0.2em] shadow-[0_0_35px_rgba(16,185,129,0.2)] hover:shadow-[0_0_50px_rgba(16,185,129,0.4)] transition-all duration-300"
+            >
+              <FaWhatsapp size={18} />
+              <span>Direct WhatsApp Line for Press & Institutional Inquiries</span>
+            </Link>
           </div>
         </section>
 
-        {/* 🎬 Footer */}
-        <footer className="py-12 mt-20 border-t border-white/5 relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"></div>
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl font-black tracking-widest text-zinc-800 uppercase">Safi Group</h3>
-            <p className="text-zinc-500 font-mono text-[11px] uppercase tracking-[0.5em]">
-              London <span className="text-[#D4AF37] mx-2">•</span> Kabul <span className="text-[#D4AF37] mx-2">•</span> Istanbul <span className="text-[#D4AF37] mx-2">•</span> Dubai <span className="text-[#D4AF37] mx-2">•</span> Global Hub
-            </p>
-            <p className="text-zinc-700 text-xs mt-8 font-mono">
-              © {new Date().getFullYear()} Shaheen Safi. All Systems Operational.
-            </p>
-          </div>
-        </footer>
       </div>
-
-      {/* Embedded Styles for smooth floating animation */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-      `}} />
     </div>
   );
 }

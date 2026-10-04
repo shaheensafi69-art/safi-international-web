@@ -47,11 +47,11 @@ export default function BlogHubFa() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white pt-32 pb-24 px-6 relative overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-black text-white pt-28 pb-24 px-3 sm:px-6 relative overflow-hidden" dir="rtl">
       {/* هاله‌ی پس‌زمینه */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="w-[98%] max-w-[1600px] mx-auto relative z-10">
         <header className="text-center mb-16">
           <h1 className="text-5xl md:text-8xl font-black text-amber-500 mb-6 tracking-tighter italic uppercase">هاب صافی</h1>
           <p className="text-gray-500 font-mono tracking-widest uppercase text-sm md:text-base">تحلیل استراتژیک و نوآوری در فین‌تک</p>
