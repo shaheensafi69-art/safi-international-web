@@ -1,0 +1,321 @@
+وب‌سایت هلدینگ و شرکت مادر شما، یعنی Safi International Capital LTD، مهم‌ترین لنگر حقوقی (Corporate Anchor) برای ثبت رسمی گراف دانش (Knowledge Graph)، دریافت Google Knowledge Panel و دیده‌شدن در الگوریتم‌های هوش مصنوعی (AEO/GEO/AIO) است. وب‌سایت‌های دیگر شما مانند SafiPay و Safi TopUp در واقع زیرمجموعه‌های این شرکت به حساب می‌آیند، بنابراین این وب‌سایت باید بالاترین سطح استانداردهای ثبتی و هویتی را داشته باشد.در ادامه نقشه راه جامع، ساختار استاندارد JSON-LD و دستورالعمل اجرایی کامل (Agent Prompt) برای پیاده‌سازی روی این ریپازیتوری آمده است:۱. معماری ارتباطی برای اتصال به گراف دانش (Entity Graph)برای اینکه گوگل نالج پنل شرکت و شما را به صورت قطعی به رسمیت بشناسد، باید رابطه مثلثی زیر در اسکیما برقرار شود:شخص (Person): شاهین صافی به عنوان Founder و Director با لینک به Wikidata و پروفایل TED.شرکت مادر (Corporation): Safi International Capital LTD با شناسه ثبت انگلستان (CRN: 17063286)، آدرس رسمی لندن، کد پستی WC2H 9JQ و شناسه DUNS.زیرمجموعه‌ها (Sub-Organizations / Brands): اتصال SafiPay، Safi TopUp، Safi Academy، Safi AI، Zev و SafiPro به عنوان دارایی‌های هلدینگ.۲. کد اسکیما یکپارچه (JSON-LD Knowledge Graph)این قطعه کد باید درون تگ <head> یا لایه Layout اصلی در تمام نسخه‌های زبانی لود شود:JSON{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Corporation",
+      "@id": "https://www.wikidata.org/wiki/Q139502306",
+      "name": "Safi International Capital LTD",
+      "legalName": "Safi International Capital LTD",
+      "url": "https://safiinternationalcapitalltd.site",
+      "logo": "https://safiinternationalcapitalltd.site/logo.png",
+      "identifier": "17063286",
+      "taxID": "85677 13611",
+      "duns": "234621356",
+      "email": "info@safiinternationalcapitalltd.site",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "71-75 Shelton Street, Covent Garden",
+        "addressLocality": "London",
+        "postalCode": "WC2H 9JQ",
+        "addressCountry": "GB"
+      },
+      "founder": {
+        "@id": "https://www.wikidata.org/wiki/Q138427366"
+      },
+      "subOrganization": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://www.wikidata.org/wiki/Q141694711",
+          "name": "SafiPay",
+          "url": "https://safipay.net"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.wikidata.org/wiki/Q138820214",
+          "name": "Safi TopUp",
+          "url": "https://safitopup.site"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://www.wikidata.org/wiki/Q140546286",
+          "name": "Safi Academy",
+          "url": "https://safiacademy.org"
+        }
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q139502306",
+        "https://find-and-update.company-information.service.gov.uk/company/17063286"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.wikidata.org/wiki/Q138427366",
+      "name": "Shaheen Safi",
+      "alternateName": ["شاهین صافی", "Shaheen Safi"],
+      "jobTitle": "Founder, Director & Chief Visionary Architect",
+      "url": "https://safiinternationalcapitalltd.site/about/shaheen-safi",
+      "birthDate": "2003-04-02",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Istanbul Technical University (ITU)"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Certified Financial Technician (CFTe)",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "International Federation of Technical Analysts (IFTA)"
+          }
+        }
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q138427366",
+        "https://www.ted.com/profiles/51476914",
+        "https://medium.com/@shaheensafi09",
+        "https://medium.com/@safipro011/the-vision-of-an-entrepreneur-who-is-shaheen-safi-7a2229cb4fbd"
+      ]
+    }
+  ]
+}
+۳. چک‌لیست موارد ساختاری و فنی در وب‌سایتبخش Footer و About شفاف و منطبق با مدارک ثبتی:نام قانونی شرکت: Safi International Capital LTDشماره ثبت در انگلستان: Company Number: 17063286آدرس کامل در لندن: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, UKداشتن این اطلاعات در فوتر متنی، فاکتور اساسی برای الگوریتم E-E-A-T گوگل جهت تایید هویت شرکتی است.پشتیبانی چندزبانه استاندارد:اگر سایت چندزبانه است، برای هر زبان تگ‌های <link rel="alternate" hreflang="xx" href="..." /> تنظیم شده و مقدار x-default به زبان انگلیسی اشاره کند.بهینه‌سازی AEO و هوش مصنوعی:یک بخش کوتاه با فرمت پرسش و پاسخ (FAQ) با استفاده از تگ‌های اسکیمای FAQPage اضافه شود؛ سوالاتی مانند:What is Safi International Capital LTD?Who is the founder of Safi International Capital LTD?۴. پرامپت آماده برای ایجنت توسعه‌دهنده (AI Agent Prompt)این دستورالعمل را مستقیماً کپی کرده و به ایجنت هوش مصنوعی (مانند Claude Code، Cursor، یا Copilot) بدهید تا روی مخزن safi-international-web اعمال کند:Markdown### MASTER SPECIFICATION: CORPORATE ENTITY KNOWLEDGE GRAPH & FULL SCHEMA IMPLEMENTATION
+
+Repository: safi-international-web
+Target: Establish institutional-grade Schema.org markup, SEO/AEO metadata, and canonical entity links to verify Safi International Capital LTD and Shaheen Safi on Google Knowledge Graph.
+
+TASKS TO EXECUTE:
+
+1. INJECT UNIFIED KNOWLEDGE GRAPH JSON-LD:
+- Create or update the main Layout/Head component to inject a comprehensive JSON-LD `@graph`.
+- Corporation Entity:
+  * Name: Safi International Capital LTD
+  * Legal Name: Safi International Capital LTD
+  * @id: "https://www.wikidata.org/wiki/Q139502306"
+  * Registration Number (CRN): 17063286
+  * Tax ID: 85677 13611
+  * DUNS Number: 234621356
+  * Address: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom
+  * sameAs links:
+    - "https://www.wikidata.org/wiki/Q139502306"
+    - "https://find-and-update.company-information.service.gov.uk/company/17063286"
+  * Sub-organizations:
+    - SafiPay ("https://www.wikidata.org/wiki/Q141694711")
+    - Safi TopUp ("https://www.wikidata.org/wiki/Q138820214")
+    - Safi Academy ("https://www.wikidata.org/wiki/Q140546286")
+
+- Person Entity (Founder):
+  * Name: Shaheen Safi (شاهین صافی)
+  * @id: "https://www.wikidata.org/wiki/Q138427366"
+  * Role: Founder, Director & Chief Visionary Architect
+  * AlumniOf: Istanbul Technical University (ITU)
+  * Credential: Certified Financial Technician (CFTe) from IFTA
+  * sameAs links:
+    - "https://www.wikidata.org/wiki/Q138427366"
+    - "https://www.ted.com/profiles/51476914"
+    - "https://medium.com/@shaheensafi09"
+    - "https://medium.com/@safipro011/the-vision-of-an-entrepreneur-who-is-shaheen-safi-7a2229cb4fbd"
+
+2. METADATA & OPEN GRAPH STANDARDS:
+- Configure complete OpenGraph and Twitter card metadata matching official corporate titles and descriptions.
+- Ensure canonical URL tags and hreflang attributes are active across all supported routes.
+
+3. FOOTER & ABOUT VERIFICATION:
+- Verify that the footer and contact/about sections display the exact UK company registration details (CRN 17063286, Covent Garden, London address, official email info@safiinternationalcapitalltd.site).
+
+4. VALIDATION:
+- Run a build and verify the output schema against Schema.org and Google Rich Results Validator with zero errors.
+پس از پیاده‌سازی این تغییرات، صفحه اصلی و صفحه درباره ما را در Google Search Console ایندکس مجدد کنید تا خزنده‌ها ساختار داده‌های حقوقی و شخصی را در دیتابیس گراف دانش به‌روزرسانی کنند.
+
+
+برای وب‌سایت هلدینگ Safi International Capital LTD (safiinternationalcapitalltd.site)، فایل‌های robots.txt و sitemap.xml باید به شکلی مهندسی شوند که:
+
+دسترسی خزنده‌های سنتی موتورهای جستجو (گوگل، بینگ) و همچنین بات‌های جدید هوش مصنوعی (مانند GPTBot، ClaudeBot، PerplexityBot و Google-Extended) کاملاً باز باشد تا داده‌های هویتی، نهادی و گراف دانش (AEO/GEO/AIO) بدون مانع خوانده شوند.
+
+تگ‌های چندزبانه (xhtml:link) در نقشه سایت ثبت شوند تا صفحات زبان‌های مختلف و صفحه مشخصات شما به عنوان بنیان‌گذار شناسایی گردند.
+
+۱. فایل public/robots.txt
+این فایل دسترسی کامل به خزنده‌های عمومی، موتورهای جستجوی مولد و بات‌های تحلیل اسکیما را اعطا می‌کند و مسیر مستقیم sitemap.xml را اعلام می‌نماید:
+
+Plaintext
+# robots.txt for safiinternationalcapitalltd.site
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow AI Search & Entity Crawlers (AEO, GEO, AIO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Canonical Sitemap
+Sitemap: https://safiinternationalcapitalltd.site/sitemap.xml
+۲. فایل public/sitemap.xml
+این نقشه سایت شامل ساختار چندزبانه استاندارد، صفحات اصلی نهادی، پورتفولیو و صفحه اختصاصی بیوگرافی بنیان‌گذار جهت اتصال سریع به گوگل نالج‌پنل است:
+
+XML
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- 1. Home / Corporate Entity Hub -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://safiinternationalcapitalltd.site/fa" />
+    <xhtml:link rel="alternate" hreflang="ps" href="https://safiinternationalcapitalltd.site/ps" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://safiinternationalcapitalltd.site/ar" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. Founder & Leadership Profile (Crucial for Shaheen Safi Knowledge Panel) -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/about/shaheen-safi</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/about/shaheen-safi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/about/shaheen-safi" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://safiinternationalcapitalltd.site/fa/about/shaheen-safi" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Corporate Overview & Governance -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/about</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/about" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://safiinternationalcapitalltd.site/fa/about" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. Ecosystem & Portfolio (SafiPay, Safi TopUp, Safi Academy, Safi AI, Zev, SafiPro) -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/portfolio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/portfolio" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://safiinternationalcapitalltd.site/fa/portfolio" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Compliance, Legal & UK Incorporation (CRN: 17063286) -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/compliance</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/compliance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/compliance" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 6. Official Contact & London Headquarters -->
+  <url>
+    <loc>https://safiinternationalcapitalltd.site/contact</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://safiinternationalcapitalltd.site/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://safiinternationalcapitalltd.site/contact" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://safiinternationalcapitalltd.site/fa/contact" />
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
+۳. پیاده‌سازی خودکار در Next.js (App Router)
+اگر پروژه از Next.js نسخه ۱۳ یا بالاتر با ساختار App Router استفاده می‌کند، می‌توانید به جای قرار دادن فایل استاتیک، فایل‌های زیر را مستقیماً در پوشه app/ بسازید تا نقشه به صورت داینامیک و اتوماتیک تولید شود:
+
+فایل app/robots.ts:
+TypeScript
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+      {
+        userAgent: ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended'],
+        allow: '/',
+      },
+    ],
+    sitemap: 'https://safiinternationalcapitalltd.site/sitemap.xml',
+  };
+}
+فایل app/sitemap.ts:
+TypeScript
+import { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://safiinternationalcapitalltd.site';
+  const lastModified = new Date();
+
+  return [
+    {
+      url: `${baseUrl}/`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/about/shaheen-safi`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/compliance`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+  ];
+}
+اقدام نهایی پس از دیپلوی:
+آدرس [https://safiinternationalcapitalltd.site/sitemap.xml](https://safiinternationalcapitalltd.site/sitemap.xml) را در بخش Sitemaps کنسول گوگل سرچ (Google Search Console) ثبت کنید.
+
+با ابزار URL Inspection آدرس‌های / و /about/shaheen-safi را بررسی و تایید کنید.
